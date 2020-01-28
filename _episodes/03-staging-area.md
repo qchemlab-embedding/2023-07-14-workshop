@@ -2,7 +2,7 @@
 layout: episode
 title: Using the Git staging area
 teaching: 10
-exercises: 10
+exercises: 0
 questions:
   - Why do we recommend to first add, then commit a change?
   - What should be included in a single commit?
@@ -16,15 +16,15 @@ keypoints:
 
 ## Commit history is telling a story
 
-Commit history is telling a story about how your code came to be.
+Commit history is telling a story about your project:
 
-- Code is rarely self-documenting.
-- Code also doesn't reveal how it came to be, only what is there now.
+- Projects/code are rarely self-documenting.
+- We only see what is now, we don't know how things came to this stage.
 - It would be great if all changes were documented, but that is too much to ask.
 - What is a good compromise?
 
 Git forces you to create version history and commit messages,
-and if these are clear then you are a long way to organized code.
+and if these are clear then you are a long way to **organized project**.
 
 
 > ## Discussion
@@ -59,7 +59,7 @@ and if these are clear then you are a long way to organized code.
 > ab990f4 saving three months of miscellaneous uncommitted work
 > ```
 >
-> Discuss these examples. Can you anticipate problems?
+> Let's discuss these examples. Can you anticipate problems?
 {: .challenge}
 
 We want to have nice commits.  But we also want to "save often"
@@ -72,11 +72,7 @@ commit or having one logical change spread over several commits.
 
 ---
 
-> ## Analogies to the staging area
->
-> We give two examples and the instructor can pick one or both:
-> - Analogy using moving boxes
-> - Analogy using shopping receipts
+> ## Analogies to the staging area: moving boxes
 >
 >
 > ### [Analogy using moving boxes](https://dev.to/sublimegeek/git-staging-area-explained-like-im-five-1anh)
@@ -89,23 +85,6 @@ commit or having one logical change spread over several commits.
 > - The box corresponds to the staging area of Git, where you can craft your commits.
 > - Committing is like sealing the box and sticking a label on it.
 > - You wouldn't want to label your box with "stuff", but rather give a more descriptive label.
->
->
-> ### Analogy using shopping receipts
->
-> - You need to go shopping and buy some stuff for work and for home.
->   You need two separate receipts.
-> - Bad idea: go through the store get home stuff, pay, start at the
->   beginning and go through the store again.  This is inefficient and
->   annoying.
-> - What you actually do:
->   - Go through the store and put everything you need in your shopping
->     basket.
->   - Get to the checkout.  Put your home stuff on the conveyor belt
->     (`git add`).  Check both the belt (`git diff --staged`) and your
->     basket (`git diff`) to make sure you got all your home stuff.
->   - Pay (`git commit`)
->   - Repeat for work stuff.
 >
 > In order to keep organized, you have to use multiple locations to
 > stage things in sequence.
@@ -164,23 +143,6 @@ $ git commit                      # commit everything that is staged
 > 2. Use `git add` to stage one of the changes.
 > 3. Use `git status` to see what's going on, and use `git diff` and `git diff --staged` to see the changes.
 > 4. Feel some regret and unstage the staged change.
-{: .challenge}
-
----
-
-> ## (Optional) Interactive staging
->
-> One option to help us create nice logical commits is to stage *interactively*
-> with `git add -p` (you can also directly commit interactively with `git commit -p`):
->
-> 1. Modify multiple lines in `instructions.txt`.
->    **Make sure that they are separated by at least one unmodified line.**
-> 2. Run `git add -p instructions.txt`.
-> 3. Type `?` and Enter to get an explanation of what the different options mean.
-> 4. See if you can use the `s` (split), `y` and `n` options to include only a subset of your modifications in the staging.
-> 5. When you're done, inspect the situation with `git status`, `git diff` and `git diff --staged`.
-> 6. If you want, you can try repeating the procedure above but use `git commit -p` instead of `git add -p` to commit directly.
->
 {: .challenge}
 
 ---

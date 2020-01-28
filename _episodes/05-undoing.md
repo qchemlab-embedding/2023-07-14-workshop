@@ -1,8 +1,8 @@
 ---
 layout: episode
 title: Undoing things
-teaching: 10
-exercises: 10
+teaching: 5
+exercises: 5
 questions:
   - How can I undo things?
 objectives:
@@ -33,21 +33,27 @@ objectives:
 ### Reverting commits
 
 - Imagine we made a few commits.
-- We realize that the latest commit `f960dd3` was a mistake and we wish to undo it:
+- We realize that the latest commit `e1d7745` was a mistake and we wish to undo it:
 
 ```
 $ git log --oneline
 
-f960dd3 (HEAD -> master) not sure this is a good idea
-dd4472c we should not forget to enjoy
-2bb9bb4 add half an onion
-2d79e7e adding ingredients and instructions
+e1d7745 (HEAD -> master) testing a new idea
+5861578 Merge branch 'less-salt'
+0996fff Merge branch 'experiment'
+372c868 add README.md file
+721d9c6 reduce amount of salt
+a85267e maybe little bit less cilantro
+c79bfc1 let us try with some cilantro
+901f422 enjoy your dish!
+7adfe4b add half an onion
+49baa1f adding ingredients and instructions
 ```
 
 A safe way to undo the commit is to revert the commit with `git revert`:
 
 ```
-$ git revert f960dd3
+$ git revert e1d7745
 ```
 
 This creates a **new commit** that does the opposite of the reverted commit.
@@ -56,24 +62,22 @@ The old commit remains in the history:
 ```
 $ git log --oneline
 
-d62ad3e (HEAD -> master) Revert "not sure this is a good idea"
-f960dd3 not sure this is a good idea
-dd4472c we should not forget to enjoy
-2bb9bb4 add half an onion
-2d79e7e adding ingredients and instructions
+646c9e1 (HEAD -> master) Revert "testing a new idea"
+e1d7745 testing a new idea
+5861578 Merge branch 'less-salt'
+0996fff Merge branch 'experiment'
+372c868 add README.md file
+721d9c6 reduce amount of salt
+a85267e maybe little bit less cilantro
+c79bfc1 let us try with some cilantro
+901f422 enjoy your dish!
+7adfe4b add half an onion
+49baa1f adding ingredients and instructions
 ```
 
 You can revert any commit, no matter how old it is.  It doesn't affect
 other commits you have done since then - but if they touch the same
 code, you may get a conflict (which we'll learn about later).
-
-> ## Exercise: Revert a commit
->
-> - Create a commit.
-> - Revert the commit with `git revert`.
-> - Inspect the history with `git log --oneline`.
-> - Now try `git show` on both the reverted and the newly created commit.
-{: .challenge}
 
 ---
 
@@ -110,21 +114,27 @@ At the same time we will learn how to remove commits (use this command with caut
 ```
 $ git log --oneline
 
-d62ad3e (HEAD -> master) Revert "not sure this is a good idea"
-f960dd3 not sure this is a good idea
-dd4472c we should not forget to enjoy
-2bb9bb4 add half an onion
-2d79e7e adding ingredients and instructions
+646c9e1 (HEAD -> master) Revert "testing a new idea"
+e1d7745 testing a new idea
+5861578 Merge branch 'less-salt'
+0996fff Merge branch 'experiment'
+372c868 add README.md file
+721d9c6 reduce amount of salt
+a85267e maybe little bit less cilantro
+c79bfc1 let us try with some cilantro
+901f422 enjoy your dish!
+7adfe4b add half an onion
+49baa1f adding ingredients and instructions
 
-$ git reset --hard dd4472c
+$ git reset --hard 901f422
 
-HEAD is now at dd4472c we should not forget to enjoy
+HEAD is now at 901f422 we should not forget to enjoy
 
 $ git log --oneline
 
-dd4472c (HEAD -> master) we should not forget to enjoy
-2bb9bb4 add half an onion
-2d79e7e adding ingredients and instructions
+901f422 (HEAD -> master) enjoy your dish!
+7adfe4b add half an onion
+49baa1f adding ingredients and instructions
 ```
 
 ---

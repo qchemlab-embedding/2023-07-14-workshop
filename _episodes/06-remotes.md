@@ -1,7 +1,7 @@
 ---
 layout: episode
 title: Sharing repositories online
-teaching: 10
+teaching: 5
 exercises: 10
 questions:
   - How can I set up a public repository online?
@@ -14,7 +14,7 @@ objectives:
 keypoints:
   - A repository can have one or multiple remotes (we will revisit these later).
   - Local branches often track remote branches.
-  - All this might be a bit nebulous but we will add clarity later this week.
+  - All this might be a bit nebulous but we will add clarity on next workshops.
   - A remote serves as a full backup of your work.
   - We'll properly learn how to use these in the next "git
     collaborative" lesson.
@@ -37,8 +37,7 @@ If we remove `.git`, we remove all Git history of a project.
 
 ## Remotes
 
-We will learn how to work with remote repositories in detail in the
-[collaborative distributed version control](https://coderefinery.github.io/git-collaborative/) lesson.
+We will learn how to work with remote repositories in detail in the next workshop.
 
 In this section we only want to get a taste to prepare us for other lessons
 where we will employ GitHub.
@@ -61,15 +60,7 @@ There are different types of remotes:
 - [GitLab](https://about.gitlab.com) is a popular, open-core
   commercial site.  Many universities have their own private GitLab servers
   set up.
-- [Bitbucket](https://bitbucket.org) is yet another popular commercial site.
-- Another option is [NotABug](https://notabug.org)
-- **We especially encourage course participants to use our new [Nordic
-  research software repository
-  platform](https://source.coderefinery.org)**, for more information
-  see
-  [https://coderefinery.org/repository/](https://coderefinery.org/repository/).
-  This is GitLab, free for researchers and allows private,
-  cross-university sharing.
+- Other options: [Bitbucket](https://bitbucket.org), [NotABug](https://notabug.org)
 
 ---
 
@@ -86,11 +77,6 @@ There are different types of remotes:
 > collaborators for your private repos. These features had made GitHub very popular
 > with many open source providers
 >
-> CodeRefinery does not in any way endorse the use of GitHub. There are many
-> commercial and open-source alternatives, just check the list above.  In the
-> end, it is a balance between control and visibility, and we use GitHub because
-> you are likely to have to use it for other software anyway.
->
 >
 > #### Set up GitHub account
 >
@@ -98,7 +84,7 @@ There are different types of remotes:
 > please do so [here](https://github.com/join). But it is OK if you want to use
 > [GitLab](https://gitlab.com) or [Bitbucket](https://bitbucket.org) or
 > [NotABug](https://notabug.org) or another platform instead (although we
-> will practice collaborative Git on GitHub tomorrow).
+> will practice collaborative Git on GitHub next time).
 {: .discussion}
 
 ---

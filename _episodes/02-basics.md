@@ -1,8 +1,8 @@
 ---
 layout: episode
 title: Basics
-teaching: 15
-exercises: 20
+teaching: 10
+exercises: 15
 questions:
   - What is Git?
   - What is a repository?
@@ -50,8 +50,6 @@ $ git commit
 ![Git staging]({{ site.baseurl }}/img/git_stage_commit.svg
 "git staging and committing"){:class="img-responsive" style="max-width:70%"}
 
-> ## Question for the more advanced participants
->
 > What do you think will be the outcome if you
 > stage a file and then edit it and stage it again, do this several times and
 > at the end perform a commit? (think of focusing several scenes and pressing the
@@ -62,8 +60,14 @@ $ git commit
 
 ## Before we start we need to configure Git
 
-If you haven't already configured Git, please follow the instructions in the
-[Git refresher lesson](https://coderefinery.github.io/git-refresher/01-setup/#configuring-git)
+detailed instructions are on [CodeRefinery](https://coderefinery.github.io/installation/git/)
+
+```shell
+$ git config --global user.name "Your Name"
+$ git config --global user.email yourname@example.com
+$ git config --global core.editor your-editor
+```
+your-editor: vim, emacs, nano, any other of your choice
 
 ---
 
@@ -72,10 +76,7 @@ If you haven't already configured Git, please follow the instructions in the
 We will learn how to initialize a Git repository, how to track changes, and how
 to make delicious guacamole!
 
-This example is inspired by [Byron Smith](http://blog.byronjsmith.com), for original reference, see
-[this thread](http://lists.software-carpentry.org/pipermail/discuss/2016-May/004529.html).
-The motivation for taking a cooking recipe instead of a program is that everybody can relate to cooking
-but not everybody may be able to relate to a program written in e.g. Python or another language.
+This example is inspired by [Byron Smith](http://blog.byronjsmith.com).
 
 Let us start.
 One of the basic principles of Git is that it is **easy to create repositories**:
@@ -88,7 +89,7 @@ $ git init
 
 That's it! We have now created an empty Git repository.
 
-We will use `git status` a lot to check out what is going on:
+We will **use `git status` a lot** to check out what is going on:
 
 ```shell
 $ git status
@@ -204,20 +205,20 @@ Now try `git log`:
 ```shell
 $ git log
 
-commit d619bf848a3f83f05e8c08c7f4dcda3490cd99d9
-Author: Radovan Bast <bast@users.noreply.github.com>
-Date:   Thu May 4 15:02:56 2017 +0200
+commit 49baa1f9a7be6422090c4a8a10694a6708c2ff41 (HEAD -> master)
+Author: gosia olejniczak <gosia.olejniczak@gmail.com>
+Date:   Tue Jan 28 08:39:07 2020 +0100
 
     adding ingredients and instructions
 ```
 
 - We can browse the development and access each state that we have committed.
-- The long hashes uniquely label a state of the code.
-- They are not just integers counting 1, 2, 3, 4, ... (why?).
 - Output is in reverse chronological order, i.e. newest commits on top.
-- We will use them when comparing versions and when going back in time.
-- `git log --oneline` only shows the first 7 characters of the commit hash and is good to get an overview.
+- The long hashes uniquely label a state of the code (here: 470bb4706fafcd9981514db7b09e9147fd20151b).
 - If the first characters of the hash are unique it is not necessary to type the entire hash.
+- We will use them when comparing versions and when going back in time.
+
+- `git log --oneline` only shows the first 7 characters of the commit hash and is good to get an overview.
 - `git log --stat` is nice to show which files have been modified.
 
 ---
@@ -244,10 +245,10 @@ Date:   Thu May 4 15:02:56 2017 +0200
 >  * 2 tsp salt
 > +* 1/2 onion
 > diff --git a/instructions.txt b/instructions.txt
-> index 6a8b2af..f7dd63a 100644
+> index 3eda565..f7dd63a 100644
 > --- a/instructions.txt
 > +++ b/instructions.txt
-> @@ -3,3 +3,4 @@
+> @@ -3,4 +3,4 @@
 >  * squeeze lime
 >  * add salt
 >  * and mix well
@@ -276,47 +277,6 @@ Date:   Thu May 4 15:02:56 2017 +0200
 > $ git show   # show various types of objects
 > $ git diff   # show changes
 > ```
-{: .challenge}
-
-> ## (Optional) Exercise: Comparing and showing commits
->
-> 1. Inspect differences between commit hashes with `git diff <hash1> <hash2>`.
-> 2. Have a look at specific commits with `git show <hash>`.
-{: .challenge}
-
-> ## (Optional) Exercise: Renaming and removing files
->
-> 1. Create a new file, `git add` and `git commit` the file.
-> 2. Rename the file with `git mv` (you will need to `git commit` the rename).
-> 3. Use `git log --oneline` and `git status`.
-> 4. Remove the file with `git rm` (again you need to `git commit` the change).
-> 5. Inspect the history with `git log --stat`. Can you recover the removed file from the Git history?
->    Hint: You can try with a web search for "git checkout removed file from past".
-{: .challenge}
-
-> ## (Optional) Exercise: Visual diff tools
->
-> - Make further modifications and experiment with `git difftool` (requires installing one of the [visual diff tools](https://coderefinery.github.io/installation/difftools/)):
->
-> On Windows or Linux:
-> ```
-> $ git difftool --tool=meld
-> ```
->
-> On macOS:
-> ```
-> $ git difftool --tool=opendiff
-> ```
->
-> ![Git events]({{ site.baseurl }}/img/meld.png
-> "git difftool meld"){:class="img-responsive" style="max-width:70%"}
->
-> You probably want to use the same visual diff tool every time and
-> you can configure Git for that:
-> ```
-> $ git config --global diff.tool meld
-> ```
->
 {: .challenge}
 
 ---
@@ -373,29 +333,17 @@ committed to version control. There are many reasons for this:
 For this we use `.gitignore` files. Example:
 
 ```
-# ignore compiled python 2 files
-*.pyc
+# ignore compiled LaTeX files
+*.log *.out *.pdf 
 # ignore compiled python 3 files
 __pycache__
-```
-
-`.gitignore` uses something called a
-[shell glob syntax](https://en.wikipedia.org/wiki/Glob_(programming)) for
-determining file patterns to ignore. You can read more about the syntax in the
-[documentation](https://git-scm.com/docs/gitignore).
-
-An example taken from [documentation](https://git-scm.com/docs/gitignore):
-
-```
-# ignore objects and archives, anywhere in the tree.
-*.[oa]
-# ignore generated html files,
-*.html
-# except foo.html which is maintained by hand
-!foo.html
 # ignore everything under build directory
 build/
 ```
+
+More about the syntax used to determine files to ignore is in the
+[documentation](https://git-scm.com/docs/gitignore).
+
 
 You can have `.gitignore` files in lower level directories and they affect the paths
 relatively.
@@ -403,22 +351,11 @@ relatively.
 `.gitignore` should be part of the repository (why?).
 
 
-#### Clean working area
+#### Good practice: maintain clean working area
 
 - Use `git status` a lot.
 - Untracked files belong to .gitignore.
 - **All files should be either tracked or ignored**.
-
----
-
-## Graphical user interfaces
-
-We have seen how to make commits directly via the GitHub website, and also via command line.
-But it is also possible to work from within a Git graphical user interface (GUI):
-
-- [GitHub Desktop](https://desktop.github.com)
-- [SourceTree](https://www.sourcetreeapp.com)
-- [List of third-party GUIs](https://git-scm.com/downloads/guis)
 
 ---
 
@@ -430,8 +367,6 @@ Now we know how to save snapshots:
 $ git add <file(s)>
 $ git commit
 ```
-
-And this is what we do as we program.
 
 Every state is then saved and later we will learn how to go back to these "checkpoints"
 and how to undo things.
@@ -484,3 +419,16 @@ Git is not ideal for large binary files
 > > 4. Would try to commit a file "my recent changes" with the message myfile.txt.
 > {: .solution}
 {: .challenge}
+
+---
+
+## Graphical user interfaces
+
+Here we worked via command line, but it is also possible to work from within a Git graphical user interface (GUI):
+
+- [GitHub Desktop](https://desktop.github.com)
+- [SourceTree](https://www.sourcetreeapp.com)
+- [List of third-party GUIs](https://git-scm.com/downloads/guis)
+
+---
+
