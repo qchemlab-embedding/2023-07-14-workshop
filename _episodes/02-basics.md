@@ -60,7 +60,7 @@ $ git commit
 
 ## Before we start we need to configure Git
 
-Also see instructions [here](https:comp-sci-tools.github.io/workshop_helpers/git-settings)
+Also see instructions [here](https://comp-sci-tools.github.io/workshop_helpers/git-settings)
 
 ```shell
 $ git config --global user.name "Your Name"
