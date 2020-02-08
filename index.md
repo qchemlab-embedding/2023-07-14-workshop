@@ -5,24 +5,21 @@ permalink: /
 
 # Introduction to version control with Git
 
-This is the introductory lesson to version control using
-[Git](https://git-scm.com/).
-This is a modified version of the [CodeRefinery tutorial](https://coderefinery.github.io/git-intro/).
+This is the introductory lesson to version control
+using [Git](https://git-scm.com/), 
+modified after the [CodeRefinery tutorial](https://coderefinery.github.io/git-intro/).
 
 
-The material will be divided in two parts:
-
-* Part 1: we start from own local repository, branching and
-merging (locally), and a brief introduction to pushing to remotes.  
-
-* Part 2: we discuss more use of remote repositories and 
-good collaborative workflows.
+## Goals
 
 The goals of the module as a whole are that the user will feel comfortable
-about staging changes, committing them, merging, and branching. The guacamole
-example is inspired by [Byron Smith](http://blog.byronjsmith.com),
+about staging changes, committing them, merging, and branching.
+
+We work on the guacamole
+example, inspired by [Byron Smith](http://blog.byronjsmith.com),
 for original reference, see [this
 thread](https://carpentries.topicbox.com/groups/discuss/Tfe5ac909d5fb476b).
+It can also be cloned from [this repo](link-to-guacamole)
 
 
 
