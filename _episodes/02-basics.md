@@ -60,7 +60,7 @@ $ git commit
 
 ## Before we start we need to configure Git
 
-Also see instructions [here](../workshop_helpers/git-settings)
+Also see instructions [here]({{ site.baseurl }}/helper/git_settings)
 
 ```shell
 $ git config --global user.name "Your Name"
