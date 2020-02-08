@@ -1,6 +1,6 @@
-fork_me_ribbon_url: https://github.com/coderefinery/git-intro
+fork_me_ribbon_url: https://github.com/comp-sci-tools/git-intro
 baseurl: "/git-intro"
-title: "Git introduction"
+title: "Introduction to git"
 
 source: .
 destination: ./_site
