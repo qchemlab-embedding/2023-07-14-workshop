@@ -60,7 +60,7 @@ $ git commit
 
 ## Before we start we need to configure Git
 
-Also see instructions [here]({{ site.baseurl }}/helper/git_settings)
+Also see instructions [here](../helper/git_settings)
 
 ```shell
 $ git config --global user.name "Your Name"
