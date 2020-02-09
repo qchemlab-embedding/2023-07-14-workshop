@@ -29,7 +29,7 @@ $ git config core.editor
 * Your global Git settings are in a `~/.gitconfig` file.
 
 
-* To set up Git for a particular repository only, omit the '--global' argument in commands above.
+* To set up Git for a particular repository only, omit the `--global` argument in commands above.
 Then your local configuration settings for this repository are in a `.gitconfig` file (in this repository).
 
 
