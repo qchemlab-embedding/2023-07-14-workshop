@@ -1,17 +1,14 @@
 ---
 layout: episode
-title: Practical git recommendations
-teaching: 5
+title: Workshop 1 - summary
+teaching: 0
 exercises: 0
 objectives:
-  - reviewing key points of this workshop
+  - reviewing key points of Git - workshop 1
 ---
 
-## Key points and advice in a nut shell:
 
-* don't panic
-
-* mistakes happen but with Git everything is figureoutable
+## What we have discussed so far:
 
 * "Initializing a Git repository is simple: `git init`"
 
