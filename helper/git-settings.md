@@ -1,11 +1,13 @@
 ---
 layout: default
-permalink: /helper/
+permalink: /helper/git-settings
 ---
 
 # Set up Git from the command line:
 
-detailed instructions are on [CodeRefinery](https://coderefinery.github.io/installation/git/)
+* detailed instructions are on [CodeRefinery](https://coderefinery.github.io/installation/git/)
+
+* basic setup (if you copy-paste the commands below, omit the '$' symbol):
 
 ```shell
 $ git config --global user.name "Your Name"
@@ -15,12 +17,19 @@ $ git config --global core.editor your-editor
 
 your-editor: vim, emacs, nano, any other of your choice
 
-To verify your setup from the command line run:
+* To verify your setup from the command line run:
 
 ```shell
 $ git config user.name
 $ git config user.email
 $ git config core.editor
+```
+
+* Useful Git aliases:
+
+
+```shell
+$ git config --global alias.graph "log --all --graph --decorate --oneline
 ```
 
 
