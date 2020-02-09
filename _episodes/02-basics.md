@@ -184,7 +184,8 @@ Right after we query the status to get this useful command into our muscle memor
 $ git status
 ```
 
-What does the `-m` flag mean? Let us check the help page for that command:
+What does the `-m` flag mean? Let us check the help page for that command
+(to get out of the help mode press 'q'):
 
 ```shell
 $ git help commit
