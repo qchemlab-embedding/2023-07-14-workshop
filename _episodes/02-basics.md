@@ -35,7 +35,7 @@ keypoints:
 ## Recording a snapshot with Git
 
 - Git takes snapshots only if we request it.
-- We will record changes always in two steps (we will [later](03-staging-area.md) explain why this is a recommended practice):
+- We will record changes always in two steps (we will [later](../03-staging-area) explain why this is a recommended practice):
 
 ```shell
 $ git add somefile.txt
