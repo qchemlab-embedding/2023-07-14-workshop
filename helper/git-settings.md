@@ -17,6 +17,7 @@ $ git config --global core.editor your-editor
 
 your-editor: vim, emacs, nano, any other of your choice
 
+
 * To verify your setup from the command line run:
 
 ```shell
@@ -25,8 +26,15 @@ $ git config user.email
 $ git config core.editor
 ```
 
-* Useful Git aliases:
+* Your global Git settings are in a `~/.gitconfig` file.
 
+
+* To set up Git for a particular repository only, omit the '--global' argument in commands above.
+Then your local configuration settings for this repository are in a `.gitconfig` file (in this repository).
+
+
+
+* Useful Git aliases:
 
 ```shell
 $ git config --global alias.graph "log --all --graph --decorate --oneline

@@ -122,6 +122,11 @@ $ git checkout <path>  # check out the latest staged version ( or committed
 - `git commit` as soon as you have created a nice self-contained unit (not too large, not too small).
 - Discuss/think about what is too large or too small.
 
+**Useful tip:**
+- `git add` every change that improves things
+-  write comments on the changes you staged in a FILE
+- `git commit -F FILE` or `git commit --file FILE` will commit the staged changes using the commit message from the FILE
+
 
 ### Example workflow
 
