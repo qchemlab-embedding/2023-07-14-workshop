@@ -101,7 +101,7 @@ No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 ```
 
-We will make sense of this information during this morning.
+We will make sense of this information during this workshop. 
 
 Let us now **create two files**.
 
@@ -165,7 +165,7 @@ Changes to be committed:
 	new file:   instructions.txt
 ```
 
-Now this change is *staged* and ready to be committed.
+**Now this change is *staged* and ready to be committed.**
 
 Let us now commit the change to the repository:
 
@@ -191,7 +191,7 @@ What does the `-m` flag mean? Let us check the help page for that command
 $ git help commit
 ```
 
-You should see a very long help page as the tool is very versatile (press q to quit).
+You should see a very long help page as the tool is very versatile.
 Do not worry about this now but keep in mind that you can always read the help files
 when in doubt. Searching online can also be useful, but choosing search terms
 to find relevant information takes some practice and discussions in some
@@ -352,7 +352,7 @@ relatively.
 `.gitignore` should be part of the repository (why?).
 
 
-#### Good practice: maintain clean working area
+#### **Good practice:** maintain clean working area
 
 - Use `git status` a lot.
 - Untracked files belong to .gitignore.
