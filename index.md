@@ -19,7 +19,7 @@ We work on the guacamole
 example, inspired by [Byron Smith](http://blog.byronjsmith.com),
 for original reference, see [this
 thread](https://carpentries.topicbox.com/groups/discuss/Tfe5ac909d5fb476b).
-It can also be cloned from [this repo](link-to-guacamole)
+It can also be cloned from [this repo](https://github.com/comp-sci-tools/recipe)
 
 
 
@@ -33,6 +33,7 @@ It can also be cloned from [this repo](link-to-guacamole)
 >   and Vim are excellent choices if you know how to use them but Nano or Notepad
 >   on Windows are sufficient.
 > - Git should be configured prior to the lesson; see for instance
+>   [these instructions](https://comp-sci-tools.github.io/git-intro/helper/git-settings) or 
 >   [CodeRefinery git installation instructions](https://coderefinery.github.io/installation/git/).
 > - A [GitHub](https://github.com) user account (but alternatives exist, see below).
 >
