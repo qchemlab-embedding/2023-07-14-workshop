@@ -40,4 +40,8 @@ Then your local configuration settings for this repository are in a `.gitconfig`
 $ git config --global alias.graph "log --all --graph --decorate --oneline
 ```
 
+# Create GitHub account
+
+* Create an account on [GitHub](https://github.com/)
+* To connect to Github without the need to type your login and password each time, set up your SSH keys by following the steps described in [this tutorial](https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
 
