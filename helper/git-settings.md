@@ -1,3 +1,8 @@
+---
+layout: default
+permalink: /helper/
+---
+
 # Set up Git from the command line:
 
 detailed instructions are on [CodeRefinery](https://coderefinery.github.io/installation/git/)
