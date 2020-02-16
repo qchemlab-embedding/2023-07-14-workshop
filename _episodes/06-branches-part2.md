@@ -48,11 +48,14 @@ Let's examine what is different on the experiment branch with respect to the (cu
 > ```shell
 > $ git diff experiment
 > $ git diff --name-status experiment
-> $ git diff --stat experiment
-> $ git diff --name-status master..experiment
 > $ git diff --name-status experiment..master
+> $ git diff --name-status master..experiment
+> $ git diff --stat experiment
 > ```
 {: .challenge}
+
+
+Tip: check visual diff tools, for example [meld](https://meldmerge.org/)
 
 
 ---
@@ -298,37 +301,31 @@ No problem: we worked on a branch, branch is deleted, `master` is clean.
 
 ---
 
-> ## Comment: Different meanings of "checkout"
+> ## Tags
 >
-> Depending on the context `git checkout` can do very different actions:
+> - A tag is a pointer to a commit but in contrast to a branch it does not move.
+> - We use tags to record particular states or milestones of a project at a given
+>   point in time, like for instance versions (have a look at [semantic versioning](http://semver.org),
+>   v1.0.3 is easier to understand and remember than 64441c1934def7d91ff0b66af0795749d5f1954a).
+> - There are two basic types of tags: annotated and lightweight.
+> - **Use annotated tags** since they contain the author and can be cryptographically signed using
+>   GPG, timestamped, and a message attached.
 >
-> 1) Switch to a branch:
+> Let's add an annotated tag to our current state of the guacamole recipe:
 >
-> ```
-> $ git checkout <branchname>
-> ```
->
-> 2) Bring the working tree to a specific state (commit), we will discuss that later:
->
-> ```
-> $ git checkout <hash>
-> ```
->
-> 3) Set a file/path to a specific state (**throws away all unstaged/uncommitted changes**):
->
-> ```
-> $ git checkout <path/file>
-> ```
->
-> This is unfortunate from the user's point of view but the way Git is implemented it makes sense.
-> Picture `git checkout` as an operation that brings the working tree to a specific state.
-> The state can be a commit or a branch (pointing to a commit).
->
-> In latest Git this is much nicer:
 > ```shell
-> $ git switch <branchname>  # switch to a different branch
-> $ git restore <path/file>  # discard changes in working directory
+> $ git tag -a nobel-2017 -m "recipe I made for the 2017 Nobel banquet"
 > ```
-{: .callout}
+>
+> As you may have found out already, `git show` is a very versatile command. Try this:
+>
+> ```shell
+> $ git show nobel-2017
+> ```
+>
+> For more information about tags see for example
+> [the Pro Git book](https://git-scm.com/book/en/v2/Git-Basics-Tagging) chapter on the
+> subject.
+{: .challenge}
 
 

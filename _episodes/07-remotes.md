@@ -183,13 +183,18 @@ automatically checked out.
 
 ---
 
-other to consider:
+## Useful hacks:
 
-`git remote add origin ...`
-`git remote set-url origin ...`
+Sometimes you want to change the url of the remote Git repository.
+There is a Git command for that:
 
-git push -u origin --all
-git push -u origin --tags
+* `git remote set-url origin <new-git-url>`
+
+
+Also, if you want to push changes in all branches/tags upstream, there are flags for that:
+
+* `git push -u origin --all`
+* `git push -u origin --tags`
 
 
 

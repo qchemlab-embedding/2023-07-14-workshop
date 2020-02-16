@@ -21,18 +21,44 @@ objectives:
 
 ---
 
-> ## Clear your workspace
+We start with checking where we are (`git status`, `git log`, `git branch`, `git diff`, `git graph`):
+
+![]({{ site.baseurl }}/img/gitink/git-deleted-branches.svg)
+
+  - what do we want to undo?
+  - review different states of a file in Git (untracked, modified, staged, commited)
+  - review the meaning of index and SHA
+
+
+
+> #### Clear your workspace
 >
 > - If you have unstaged changes from earlier sections, remove them with `git checkout <filename>`.
 > - We will see in more detail below how `git checkout` works.
 >
 {: .callout}
 
+
+
+### Undo uncommited changes  
+
+* undo unstaged changes:
+
+  - `git checkout -- <filename>`: **any local changes you made to that file/repository are gone**
+  - `git checkout -b new-experiment && git add . && git commit -m "testing the new idea"`:
+  - `git stash save "testing a new idea"`
+
+* undo staged but uncommited changes (you did `git add` but didn't do `git commit`):
+
+  - `git reset HEAD <filename>` 
+
+* excellent guide: [link](http://sethrobertson.github.io/GitFixUm/fixup.html#uncommitted_everything)
+
 ---
 
 ### Reverting commits
 
-- Imagine we made a few commits.
+- Let's make a new commit on a `master` branch (e.g. modify a README.md file)
 - We realize that the latest commit `e1d7745` was a mistake and we wish to undo it:
 
 ```
@@ -167,3 +193,40 @@ $ git log --oneline
 > >    ```
 > {: .solution}
 {: .challenge}
+
+---
+
+> ## Comment: Different meanings of "checkout"
+>
+> Depending on the context `git checkout` can do very different actions:
+>
+> 1) Switch to a branch:
+>
+> ```
+> $ git checkout <branchname>
+> ```
+>
+> 2) Bring the working tree to a specific state (commit), we will discuss that later:
+>
+> ```
+> $ git checkout <hash>
+> ```
+>
+> 3) Set a file/path to a specific state (**throws away all unstaged/uncommitted changes**):
+>
+> ```
+> $ git checkout <path/file>
+> ```
+>
+> This is unfortunate from the user's point of view but the way Git is implemented it makes sense.
+> Picture `git checkout` as an operation that brings the working tree to a specific state.
+> The state can be a commit or a branch (pointing to a commit).
+>
+> In latest Git this is much nicer:
+> ```shell
+> $ git switch <branchname>  # switch to a different branch
+> $ git restore <path/file>  # discard changes in working directory
+> ```
+{: .callout}
+
+
