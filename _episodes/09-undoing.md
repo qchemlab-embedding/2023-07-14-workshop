@@ -59,7 +59,7 @@ We start with checking where we are (`git status`, `git log`, `git branch`, `git
 ### Reverting commits
 
 - Let's make a new commit on a `master` branch (e.g. modify a README.md file)
-- We realize that the latest commit `e1d7745` was a mistake and we wish to undo it:
+- We realize that this commit (`e1d7745`) was a mistake and we wish to undo it:
 
 ```
 $ git log --oneline
