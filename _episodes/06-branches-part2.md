@@ -1,8 +1,8 @@
 ---
 layout: episode
 title: Branching and merging. Part 2.
-teaching: 10
-exercises: 10
+teaching: 20
+exercises: 15
 questions:
   - How can I or my team work on multiple features in parallel?
   - How to combine the changes of parallel tracks of work?
@@ -55,8 +55,7 @@ Let's examine what is different on the experiment branch with respect to the (cu
 {: .challenge}
 
 
-Tip: check visual diff tools, for example [meld](https://meldmerge.org/)
-
+Tip: try visual diff tools, for example [meld](https://meldmerge.org/)
 
 ---
 
