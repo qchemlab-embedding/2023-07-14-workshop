@@ -21,16 +21,6 @@ objectives:
 
 ---
 
-We start with checking where we are (`git status`, `git log`, `git branch`, `git diff`, `git graph`):
-
-![]({{ site.baseurl }}/img/gitink/git-deleted-branches.svg)
-
-  - what do we want to undo?
-  - review different states of a file in Git (untracked, modified, staged, commited)
-  - review the meaning of index and SHA
-
-
-
 > #### Clear your workspace
 >
 > - If you have unstaged changes from earlier sections, remove them with `git checkout <filename>`.
@@ -39,27 +29,17 @@ We start with checking where we are (`git status`, `git log`, `git branch`, `git
 {: .callout}
 
 
+We start with the following state:
 
-### Undo uncommited changes  
+![]({{ site.baseurl }}/img/gitink/git-deleted-branches.svg)
 
-* undo unstaged changes:
-
-  - `git checkout -- <filename>`: **any local changes you made to that file/repository are gone**
-  - `git checkout -b new-experiment && git add . && git commit -m "testing the new idea"`:
-  - `git stash save "testing a new idea"`
-
-* undo staged but uncommited changes (you did `git add` but didn't do `git commit`):
-
-  - `git reset HEAD <filename>` 
-
-* excellent guide: [link](http://sethrobertson.github.io/GitFixUm/fixup.html#uncommitted_everything)
+  - what do we want to undo?
 
 ---
 
 ### Reverting commits
 
-- Let's make a new commit on a `master` branch (e.g. modify a README.md file)
-- We realize that this commit (`e1d7745`) was a mistake and we wish to undo it:
+Let's make a new commit on a `master` branch (e.g. modify a README.md file):
 
 ```
 $ git log --oneline
@@ -75,6 +55,8 @@ c79bfc1 let us try with some cilantro
 7adfe4b add half an onion
 49baa1f adding ingredients and instructions
 ```
+
+We realize that this commit (`e1d7745`) was a mistake and we wish to undo it
 
 A safe way to undo the commit is to revert the commit with `git revert`:
 
@@ -105,6 +87,14 @@ You can revert any commit, no matter how old it is.  It doesn't affect
 other commits you have done since then - but if they touch the same
 code, you may get a conflict (which we'll learn about later).
 
+> ## Exercise: Revert a commit
+>
+> - Create a commit.
+> - Revert the commit with `git revert`.
+> - Inspect the history with `git log --oneline`.
+> - Now try `git show` on both the reverted and the newly created commit.
+{: .challenge}
+
 ---
 
 ### Adding to the previous commit
@@ -127,6 +117,15 @@ This means that we never use this command on commits that we have shared with ot
 > 2. Inspect the unsatisfactory but committed change with `git show`.
 > 3. Now complete/fix the change but instead of creating a new commit, add to the previous commit with `git commit --amend`.
 {: .challenge}
+
+---
+
+### Going back to a particular commit
+
+1. `git checkout <hash>` checks out a specific commit and puts it in your work tree
+
+2. `git reset <hash>`
+
 
 ---
 
@@ -162,6 +161,21 @@ $ git log --oneline
 7adfe4b add half an onion
 49baa1f adding ingredients and instructions
 ```
+
+---
+
+### Undo uncommited changes  
+
+* undo unstaged changes:
+
+  - `git checkout -- <filename>`: **any local changes you made to that file/repository are gone**
+  - `git checkout -b new-experiment && git add . && git commit -m "testing the new idea"`: commiting local changes to a new branch
+  - `git stash save "testing a new idea"`: stash local changes
+
+* undo staged but uncommited changes (you did `git add` but didn't do `git commit`):
+
+  - `git reset HEAD` 
+
 
 ---
 
@@ -229,4 +243,33 @@ $ git log --oneline
 > ```
 {: .callout}
 
+---
+
+
+## Recommendations, links, possible scenarios:
+
+* when to use `git revert <hash>`:
+	* if there is a commit in the project's history that (as you later decide) should not have been done and was a mistake
+	* is the simplest to undo the last commit, reverting an older commit works the same way, but may cause conflicts (we will discuss that later)
+	* it doesn't modify history, but it creates a new commit ('adds to history')
+
+* when to use `git checkout`:
+	* `git checkout` can be used in different contexts - see a comment above 
+	* to get rid of all local changes to that file (be careful - those cannot be restored)
+    * to bring the content of the specific commit to your working tree
+    * it doesn't modify history 
+
+* when to use `git reset --hard <hash>`:
+	* you made commits (which you haven't shared with other people!) but later you decide that you don't want them
+    * you want to make your branch identical with some other branch/tag
+    * it moves HEAD to <hash> and resets your working directory to the state as in <hash> (so it looks like later commits were never made)
+    * 
+	* it rewrites the history 
+
+
+* Excellent guides:
+	* [On undoing, fixing, or removing commits in git](http://sethrobertson.github.io/GitFixUm/fixup.html)
+	* [How to undo all uncommitted changes](http://sethrobertson.github.io/GitFixUm/fixup.html#uncommitted_everything)
+
+* [Play with undoing changes interactively](http://git-school.github.io/visualizing-git/)
 

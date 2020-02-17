@@ -105,5 +105,8 @@ but at least you have the data still.
 
 ---
 
-Recommendations and links:
+## Recommendations:
+
+* if you use stashes - (in most situations) name your stashes (`git stash save <name>` instead of `git stash`)
+* it is possible to apply the stash on top of a new branch with `git stash branch <name-of-a-branch>`
 

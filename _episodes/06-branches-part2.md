@@ -21,7 +21,7 @@ keypoints:
 * check out a branch: `git checkout <name-of-a-branch>`
 * create and check out a branch in one step: `git checkout -b <name-of-a-branch>` 
 * list all branches: `git branch`
-* alias useful to work with branches: `git graph`
+* alias useful to work with branches: `git graph`, it was created with `git config --global alias.graph "log --all --graph --decorate --oneline"`
 
 
 ---
@@ -55,7 +55,7 @@ Let's examine what is different on the experiment branch with respect to the (cu
 {: .challenge}
 
 
-Tip: try visual diff tools, for example [meld](https://meldmerge.org/)
+**Tip:** try visual diff tools (run `git difftool --tool-help` to see all predefined options)
 
 ---
 

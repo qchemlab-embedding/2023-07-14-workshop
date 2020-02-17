@@ -29,8 +29,8 @@ objectives:
 
 	* Git commits can be reverted:
 
-		* use `git revert <commit-SHA>` to undo the commit - this creates a new commit
-		* use `git reset --hard <commit-SHA>` to bring HEAD to <commit-SHA> - this removes all commits after <commit-SHA> (use it to make your branch identical with some other branch/tag)
+		* use `git revert <hash>` to undo the commit - this creates a new commit
+		* use `git reset --hard <hash>` to bring HEAD to <hash> 
 		* use `git reset --hard @{u}` to make the local branch identical to upstream 
 
 	* Some Git commands rewrite history:

@@ -64,20 +64,6 @@ There are different types of remotes:
 
 ---
 
-> ## Why we use GitHub
->
-> One option to host your repository on the web is [GitHub](https://github.com).
->
-> GitHub is a for-profit service that hosts remote git repositories for you. It
-> offers a nice HTML user interface to browse the repositories and handles many
-> things very nicely.
->
-> It offers unlimited public and private repositories free of charge and costs
-> a monthly fee if you want access to the pro-tools or need more than 3
-> collaborators for your private repos. These features had made GitHub very popular
-> with many open source providers
->
->
 > #### Set up GitHub account
 >
 > By now you should already have set up a GitHub account but if you haven't,
@@ -157,8 +143,7 @@ What just happened? **Think of publishing a repository as uploading the `.git` p
 
 ## Cloning a repository
 
-Now other people can clone this repository and contribute changes. In the
-[collaborative distributed version control](https://coderefinery.github.io/git-collaborative/) lesson
+Now other people can clone this repository and contribute changes. In the separate lesson
 we will learn how this works.
 
 At this point only a brief demo - if you copy the SSH or HTTPS address, you can clone repositories like this
