@@ -2,7 +2,7 @@
 layout: episode
 title: Interrupted work
 teaching: 5
-exercises: 5
+exercises: 0
 questions:
   - How can Git help us to deal with interrupted work and context switching?
 objectives:
@@ -42,24 +42,6 @@ things.
 - The stashes form a stack, so you can stash several batches of modifications.
 
 
-### Exercise: stashes
-
-1. Make a change.
-2. Check status/diff, stash the change, check status/diff again.
-3. Make a separate, unrelated change which doesn't touch the same
-  lines.  Commit this change.
-4. Pop off the stash you saved, check status/diff.
-5. Optional: Do the same but stash twice.  Also check `git stash list`.
-  Can you pop the stashes in the opposite order?
-6. Advanced: What happens if stashes conflict with other changes? Make
-  a change and stash it.  Modify the same line or one right above or
-  below.  Pop the stash back.  Resolve the conflict.  Note there is no
-  extra commit.
-7. Advanced: what does `git graph` show when you have something
-  stashed?
-
----
-
 ## Option 2: Create branches
 
 You can use branches almost like you have already been doing if you
@@ -79,15 +61,36 @@ $ git checkout temporary     # continue where you left off
 
 Later you can merge it to master or rebase it on top of master and resume work.
 
+---
 
-### Exercises (optional)
+
+## Exercises (optional) 
+
+### Stashes
+
+1. Make a change.
+2. Check status/diff, stash the change, check status/diff again.
+3. Make a separate, unrelated change which doesn't touch the same
+  lines.  Commit this change.
+4. Pop off the stash you saved, check status/diff.
+5. Optional: Do the same but stash twice.  Also check `git stash list`.
+  Can you pop the stashes in the opposite order?
+6. Advanced: What happens if stashes conflict with other changes? Make
+  a change and stash it.  Modify the same line or one right above or
+  below.  Pop the stash back.  Resolve the conflict.  Note there is no
+  extra commit.
+7. Advanced: what does `git graph` show when you have something
+  stashed?
+
+
+### Branches
 
 You already know how to do this...
 
-. Optional: Go through the process above.  Start a change, create new
+1. Optional: Go through the process above.  Start a change, create new
   branch and store your changes.  Go back to master and fix something
   else.  Resume your work and merge the new branch.
-2. Discuss how to resume your former work.  Can you git rid of a branch?
+2. Discuss how to resume your former work.  Can you get rid of a branch?
   Continue using it?  etc.
 
 ---
@@ -99,3 +102,8 @@ to lose it right away.  You can use either of the above strategies to
 stash/branch it away: using branches is probably better.  Note that if you
 try to use a branch after a long time, conflicts might get really bad
 but at least you have the data still.
+
+---
+
+Recommendations and links:
+
