@@ -30,13 +30,17 @@ objectives:
 	* Git commits can be reverted:
 
 		* use `git revert <hash>` to undo the commit - this creates a new commit
-		* use `git reset --hard <hash>` to bring HEAD to <hash> 
+
+	* Git commits can be modified:
+
+		* use `git commit --amend` to modify the last commit (this changes history!)
+
+	* Git commits can be removed:
+
+		* use `git reset --hard <hash>` to bring HEAD to `<hash>` and remove all later commits
 		* use `git reset --hard @{u}` to make the local branch identical to upstream 
 
-	* Some Git commands rewrite history:
-
-		* try to avoid them on public commits
-		* 
+	* Some Git commands rewrite history - try to avoid them on public commits
 
 
 

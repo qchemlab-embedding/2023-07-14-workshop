@@ -122,6 +122,8 @@ This means that we never use this command on commits that we have shared with ot
 
 ### Bring your project back to a specific commit
 
+#### With `git checkout`
+
 *  `git checkout <hash>` checks out a specific commit and puts it in your work tree
 
 > ## Exercise: create a new branch from an old commit
@@ -184,6 +186,8 @@ This means that we never use this command on commits that we have shared with ot
 {: .challenge}
 
 
+#### With `git reset`
+
 *  `git reset --hard <hash>` can be used to make your current state identical with another branch/tag (represented by `<hash>`)  
 
 
@@ -202,6 +206,7 @@ This means that we never use this command on commits that we have shared with ot
 
 * **`git reset` removes commits - be careful when using it on your work!**
 * **As it rewrites history, it should not be used on commits that were pushed upstream.**
+* `git reset --hard @{u}` is a command to make the local branch identical to upstream
 
 ---
 
