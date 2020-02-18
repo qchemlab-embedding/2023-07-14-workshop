@@ -120,21 +120,96 @@ This means that we never use this command on commits that we have shared with ot
 
 ---
 
-### Going back to a particular commit
+### Bring your project back to a specific commit
 
-1. `git checkout <hash>` checks out a specific commit and puts it in your work tree
+*  `git checkout <hash>` checks out a specific commit and puts it in your work tree
 
-2. `git reset <hash>`
+> ## Exercise: create a new branch from an old commit
+>
+> Let's inspect our current state:
+>
+> ```
+> $ git log --oneline
+> 
+> 646c9e1 (HEAD -> master) Revert "testing a new idea"
+> e1d7745 testing a new idea
+> 5861578 Merge branch 'less-salt'
+> 0996fff Merge branch 'experiment'
+> 372c868 add README.md file
+> 721d9c6 reduce amount of salt
+> a85267e maybe little bit less cilantro
+> c79bfc1 let us try with some cilantro
+> 901f422 enjoy your dish!
+> 7adfe4b add half an onion
+> 49baa1f adding ingredients and instructions
+> ```
+> 
+> We want to continue to work on adapting the amount of cilantro:
+> 
+> ```
+> $ git checkout a85267e 
+> ```
+>
+> will show this message:
+> 
+> ```
+> Note: checking out 'a85267e'.
+> 
+> You are in 'detached HEAD' state. You can look around, make experimental
+> changes and commit them, and you can discard any commits you make in this
+> state without impacting any branches by performing another checkout.
+> 
+> If you want to create a new branch to retain commits you create, you may
+> do so (now or later) by using -b with the checkout command again. Example:
+> 
+>   git checkout -b <new-branch-name>
+> 
+> HEAD is now at a85267e maybe little bit less cilantro
+> ```
+>
+> This means that the HEAD is not related to any branch
+>
+> * what is the output of `git branch`?
+> * how does `git graph` look like?
+>
+> We see that the `HEAD` has moved to `a85267e`.
+> Now we can do what Git suggests and create a branch from that state with:
+>
+> ```
+> $ git checkout -b experiment_with_cilantro`
+> ```
+>
+> Inspect the result with `git branch` and `git graph`. What is the content of your current working directory?
+>
+{: .challenge}
 
+
+*  `git reset --hard <hash>` can be used to make your current state identical with another branch/tag (represented by `<hash>`)  
+
+
+> ## Exercise
+>
+> 1. Let's create few new commit on `experiment_with_cilantro` branch
+> 2. Check how it goes with e.g. `git log` or `git graph`
+> 3. Realize you do not want these commits and wish to go back to the original state of that branch. This can be done with
+>
+> ```
+> $ git reset --hard a85267e 
+> ```
+>
+> 4. What is now the output of `git graph` or `git log`?
+{: .challenge}
+
+* **`git reset` removes commits - be careful when using it on your work!**
+* **As it rewrites history, it should not be used on commits that were pushed upstream.**
 
 ---
 
 ### Clean history
 
-After we have experimented with reverts and amending, let us get our
+After we have experimented, let us get our
 repositories to a similar state.
 
-At the same time we will learn how to remove commits (use this command with caution in your work).
 
 ```
 $ git log --oneline
@@ -254,8 +329,8 @@ $ git log --oneline
 	* it doesn't modify history, but it creates a new commit ('adds to history')
 
 * when to use `git checkout`:
-	* `git checkout` can be used in different contexts - see a comment above 
-	* to get rid of all local changes to that file (be careful - those cannot be restored)
+	* `git checkout` can be used in different contexts - see the comment above 
+	* to get rid of all local changes in your working directory (be careful - those cannot be restored)
     * to bring the content of the specific commit to your working tree
     * it doesn't modify history 
 
@@ -263,7 +338,6 @@ $ git log --oneline
 	* you made commits (which you haven't shared with other people!) but later you decide that you don't want them
     * you want to make your branch identical with some other branch/tag
     * it moves HEAD to <hash> and resets your working directory to the state as in <hash> (so it looks like later commits were never made)
-    * 
 	* it rewrites the history 
 
 

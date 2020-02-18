@@ -51,11 +51,14 @@ Let's examine what is different on the experiment branch with respect to the (cu
 > $ git diff --name-status experiment..master
 > $ git diff --name-status master..experiment
 > $ git diff --stat experiment
+> $ git diff experiment..master -- ingredients.txt
+> $ git log experiment..master
+> $ git log --oneline --graph --decorate --abbrev-commit experiment..master
 > ```
 {: .challenge}
 
 
-**Tip:** try visual diff tools (run `git difftool --tool-help` to see all predefined options)
+**Tip:** also try visual diff tools (run `git difftool --tool-help` to see all predefined options)
 
 ---
 
