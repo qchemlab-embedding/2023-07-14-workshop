@@ -345,6 +345,7 @@ $ git log --oneline
     * it moves HEAD to `<hash>` and resets your working directory to the state as in `<hash>` (so it looks like later commits were never made)
 	* **it rewrites the history**
 
+* before undoing things consider taking a backup of your current working directory and .git 
 
 * Excellent guides:
 	* [On undoing, fixing, or removing commits in git](http://sethrobertson.github.io/GitFixUm/fixup.html)
