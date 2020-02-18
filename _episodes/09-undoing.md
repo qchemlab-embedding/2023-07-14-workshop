@@ -181,8 +181,16 @@ This means that we never use this command on commits that we have shared with ot
 > $ git checkout -b experiment_with_cilantro`
 > ```
 >
-> Inspect the result with `git branch` and `git graph`. What is the content of your current working directory?
+> * Inspect the result with `git branch` and `git graph`. What is the content of your current working directory?
 >
+> This is often used to create branches pointing to a commit in the past (e.g. if you want to inspect old versions of the project) and
+> there is a shortcut for what we just did:
+>
+> ```
+> $ git checkout -b <branchname> <hash>
+> ```
+>
+> so we could have done `git checkout -b experiment_with_cilantro a85267e`
 {: .challenge}
 
 
@@ -313,7 +321,7 @@ $ git log --oneline
 > ```
 >
 > This is unfortunate from the user's point of view but the way Git is implemented it makes sense.
-> Picture `git checkout` as an operation that brings the working tree to a specific state.
+> **Picture `git checkout` as an operation that brings the working tree to a specific state.**
 > The state can be a commit or a branch (pointing to a commit).
 >
 > In latest Git this is much nicer:
@@ -336,14 +344,14 @@ $ git log --oneline
 * when to use `git checkout`:
 	* `git checkout` can be used in different contexts - see the comment above 
 	* to get rid of all local changes in your working directory (be careful - those cannot be restored)
-    * to bring the content of the specific commit to your working tree
+    * to bring your working tree to a specific state
     * it doesn't modify history 
 
 * when to use `git reset --hard <hash>`:
 	* you made commits (which you haven't shared with other people!) but later you decide that you don't want them
     * you want to make your branch identical with some other branch/tag
-    * it moves HEAD to <hash> and resets your working directory to the state as in <hash> (so it looks like later commits were never made)
-	* it rewrites the history 
+    * it moves HEAD to `<hash>` and resets your working directory to the state as in `<hash>` (so it looks like later commits were never made)
+	* **it rewrites the history**
 
 
 * Excellent guides:

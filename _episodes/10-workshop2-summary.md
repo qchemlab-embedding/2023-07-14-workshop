@@ -14,11 +14,12 @@ objectives:
     * use branches to experiment and to work on things in parallel;
     * branch often
     * keep the `master` branch as clean as possible
-    * make sure you are on a right branch (`git branch`, `git status`)
+    * use `git branch` or `git status` to make sure you are on the right branch
 
 
 * It is good to have a remote host for your repository:
-    * e.g. use web services like GitHub, GitLab, etc.
+
+    * use web services like GitHub, GitLab, etc.
 
 
 * It is a good practice (in most cases) to commit your work:
@@ -37,8 +38,8 @@ objectives:
 
 	* Git commits can be removed:
 
-		* use `git reset --hard <hash>` to bring HEAD to `<hash>` and remove all later commits
-		* use `git reset --hard @{u}` to make the local branch identical to upstream 
+		* use `git reset --hard <hash>` to bring HEAD to `<hash>` and remove all later commits (this changes history!)
+		* use `git reset --hard @{u}` to make the local branch identical to upstream (this changes history!)
 
 	* Some Git commands rewrite history - try to avoid them on public commits
 
