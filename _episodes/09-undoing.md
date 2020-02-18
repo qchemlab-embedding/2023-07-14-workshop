@@ -1,8 +1,8 @@
 ---
 layout: episode
 title: Undoing things
-teaching: 5
-exercises: 5
+teaching: 15
+exercises: 25
 questions:
   - How can I undo things?
 objectives:
@@ -120,11 +120,11 @@ This means that we never use this command on commits that we have shared with ot
 
 ---
 
-### Bring your project back to a specific commit
+### Bring your project back to a specific state
 
 #### With `git checkout`
 
-*  `git checkout <hash>` checks out a specific commit and puts it in your work tree
+*  `git checkout <hash>` checks out a commit `<hash>` and puts it in your work tree
 
 > ## Exercise: create a new branch from an old commit
 >
@@ -152,7 +152,7 @@ This means that we never use this command on commits that we have shared with ot
 > $ git checkout a85267e 
 > ```
 >
-> will show this message:
+> we should see this message:
 > 
 > ```
 > Note: checking out 'a85267e'.
@@ -196,13 +196,28 @@ This means that we never use this command on commits that we have shared with ot
 
 #### With `git reset`
 
-*  `git reset --hard <hash>` can be used to make your current state identical with another branch/tag (represented by `<hash>`)  
+*  `git reset --hard <hash>`:
+
+	* **removes commits after `<hash>` and permanently throws away their changes!**
+	* can be used to make your current state identical with another branch/tag (represented by `<hash>`)  
+	* as **it rewrites history**, it should not be used on commits that were pushed upstream.
+	* `git reset --hard @{u}` is a command to make the local branch identical to upstream
+
+
+*  `git reset --soft <hash>`:
+
+	* **removes commits after `<hash>` but keeps their modifications as staged changes** 
 
 
 > ## Exercise
 >
-> 1. Let's create few new commit on `experiment_with_cilantro` branch
-> 2. Check how it goes with e.g. `git log` or `git graph`
+> 1. Let's create few new commits on `experiment_with_cilantro` branch
+> 2. Do `git log` or `git graph` to inspect the recent history:
+>
+>
+>
+>
+>
 > 3. Realize you do not want these commits and wish to go back to the original state of that branch. This can be done with
 >
 > ```
@@ -212,9 +227,6 @@ This means that we never use this command on commits that we have shared with ot
 > 4. What is now the output of `git graph` or `git log`?
 {: .challenge}
 
-* **`git reset` removes commits - be careful when using it on your work!**
-* **As it rewrites history, it should not be used on commits that were pushed upstream.**
-* `git reset --hard @{u}` is a command to make the local branch identical to upstream
 
 ---
 
@@ -324,7 +336,7 @@ $ git log --oneline
 > **Picture `git checkout` as an operation that brings the working tree to a specific state.**
 > The state can be a commit or a branch (pointing to a commit).
 >
-> In latest Git this is much nicer:
+> In latest Git (2.23) this is much nicer:
 > ```shell
 > $ git switch <branchname>  # switch to a different branch
 > $ git restore <path/file>  # discard changes in working directory
