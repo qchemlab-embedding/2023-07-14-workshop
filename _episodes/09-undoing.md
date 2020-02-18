@@ -148,49 +148,17 @@ This means that we never use this command on commits that we have shared with ot
 > 49baa1f adding ingredients and instructions
 > ```
 > 
-> We want to continue to work on adapting the amount of cilantro:
+> We want to continue to work on adapting the amount of cilantro
+> and we will create a branch from commit `a85267e`:
 > 
 > ```
-> $ git checkout a85267e 
-> ```
->
-> we should see this message:
-> 
-> ```
-> Note: checking out 'a85267e'.
-> 
-> You are in 'detached HEAD' state. You can look around, make experimental
-> changes and commit them, and you can discard any commits you make in this
-> state without impacting any branches by performing another checkout.
-> 
-> If you want to create a new branch to retain commits you create, you may
-> do so (now or later) by using -b with the checkout command again. Example:
-> 
->   git checkout -b <new-branch-name>
-> 
-> HEAD is now at a85267e maybe little bit less cilantro
-> ```
->
-> This means that we are no longer on a branch (why?)
->
-> * what is the output of `git branch`?
-> * how does `git graph` look like?
->
-> We see that the `HEAD` has moved to `a85267e`.
-> Now we can do what Git suggests and create a branch from that state with:
->
-> ```
-> $ git checkout -b experiment_with_cilantro
+> $ git checkout -b experiment_with_cilantro a85267e
 > ```
 >
 > * Inspect the result with `git branch` and `git graph`. What is the content of your current working directory?
 >
-> This is often used to create branches pointing to a commit in the past, for example if you want to inspect old versions of the project 
-> (we will go back to that in archeology class). There is a shortcut for what we just did:
->
-> ```
-> $ git checkout -b <branchname> <hash>
-> ```
+> This is often used to inspect old versions of the project 
+> (we will go back to that in archeology class).
 {: .challenge}
 
 
