@@ -116,6 +116,7 @@ This means that we never use this command on commits that we have shared with ot
 > 1. Make an incomplete change to the recipe or a typo in your change, `git add` and `git commit` the incomplete/unsatisfactory change.
 > 2. Inspect the unsatisfactory but committed change with `git show`.
 > 3. Now complete/fix the change but instead of creating a new commit, add to the previous commit with `git commit --amend`.
+> 4. Inspect the modified commit with `git show`.
 {: .challenge}
 
 ---
@@ -133,7 +134,8 @@ This means that we never use this command on commits that we have shared with ot
 > ```
 > $ git log --oneline
 > 
-> 646c9e1 (HEAD -> master) Revert "testing a new idea"
+> d0a525a (HEAD -> master) write better instructions
+> 646c9e1 Revert "testing a new idea"
 > e1d7745 testing a new idea
 > 5861578 Merge branch 'less-salt'
 > 0996fff Merge branch 'experiment'
@@ -169,7 +171,7 @@ This means that we never use this command on commits that we have shared with ot
 > HEAD is now at a85267e maybe little bit less cilantro
 > ```
 >
-> This means that the HEAD is not related to any branch
+> This means that we are no longer on a branch (why?)
 >
 > * what is the output of `git branch`?
 > * how does `git graph` look like?
@@ -178,19 +180,17 @@ This means that we never use this command on commits that we have shared with ot
 > Now we can do what Git suggests and create a branch from that state with:
 >
 > ```
-> $ git checkout -b experiment_with_cilantro`
+> $ git checkout -b experiment_with_cilantro
 > ```
 >
 > * Inspect the result with `git branch` and `git graph`. What is the content of your current working directory?
 >
-> This is often used to create branches pointing to a commit in the past (e.g. if you want to inspect old versions of the project) and
-> there is a shortcut for what we just did:
+> This is often used to create branches pointing to a commit in the past, for example if you want to inspect old versions of the project 
+> (we will go back to that in archeology class). There is a shortcut for what we just did:
 >
 > ```
 > $ git checkout -b <branchname> <hash>
 > ```
->
-> so we could have done `git checkout -b experiment_with_cilantro a85267e`
 {: .challenge}
 
 
@@ -212,19 +212,28 @@ This means that we never use this command on commits that we have shared with ot
 > ## Exercise
 >
 > 1. Let's create few new commits on `experiment_with_cilantro` branch
-> 2. Do `git log` or `git graph` to inspect the recent history:
 >
 >
+> ```
+> $ git log --oneline
 >
+> f85500e (HEAD -> experiment_with_cilantro) prepare todo list
+> 25f8f0a modify recipe
+> c7375d4 increase the amount of cilantro
+> a85267e maybe little bit less cilantro
+> c79bfc1 let us try with some cilantro
+> 901f422 enjoy your dish!
+> 7adfe4b add half an onion
+> 49baa1f adding ingredients and instructions
+> ```
 >
->
-> 3. Realize you do not want these commits and wish to go back to the original state of that branch. This can be done with
+> 2. Realize you do not want these commits and wish to go back to the original state of that branch. This can be done with
 >
 > ```
 > $ git reset --hard a85267e 
 > ```
 >
-> 4. What is now the output of `git graph` or `git log`?
+> 3. What is now the output of `git graph` or `git log`?
 {: .challenge}
 
 
@@ -237,9 +246,11 @@ repositories to a similar state.
 
 
 ```
+$ git checkout master
 $ git log --oneline
 
-646c9e1 (HEAD -> master) Revert "testing a new idea"
+d0a525a (HEAD -> master) write better instructions
+646c9e1 Revert "testing a new idea"
 e1d7745 testing a new idea
 5861578 Merge branch 'less-salt'
 0996fff Merge branch 'experiment'
@@ -276,37 +287,6 @@ $ git log --oneline
 
   - `git reset HEAD` 
 
-
----
-
-> ## Test your understanding
->
-> 1. What happens if you accidentally remove a tracked file with `git rm`, is it gone forever?
-> 2. Is it OK to modify commits that nobody has seen yet?
-> 3. What situations would justify to modify the Git history and possibly remove commits?
-> 4. What is the difference between these commands?
->    ```shell
->    $ git diff
->    $ git diff --staged  # or git diff --cached
->    $ git diff HEAD
->    $ git diff HEAD^
->    ```
->
-> > ## Solution
-> >
-> > 1. It is not gone forever since `git rm` creates a new commit. You can simply revert it!
-> > 2. If you haven't shared your commits with anyone it can be alright to modify them.
-> > 3. If you have shared your commits with others (e.g. pushed them to GitHub), only extraordinary
-> >    conditions would justify modifying history. For example to remove sensitive or secret information.
-> > 4. The different commands show changes between different file states:
-> >    ```shell
-> >    $ git diff          # Show what has changed but hasn't been staged yet via git add.
-> >    $ git diff --staged # Show what has been staged but not yet committed.
-> >    $ git diff HEAD     # Show what has changed since the last commit.
-> >    $ git diff HEAD^    # Show what has changed since the commit before the latest commit.
-> >    ```
-> {: .solution}
-{: .challenge}
 
 ---
 
