@@ -41,17 +41,27 @@ objectives:
 		* use `git reset --hard <hash>` to bring HEAD to `<hash>` and remove all later commits (this changes history!)
 		* use `git reset --hard @{u}` to make the local branch identical to upstream (this changes history!)
 
-	* Some Git commands rewrite history - try to avoid them on public commits
+	* **Some Git commands rewrite history - try to avoid them on public commits**
 
 
 
 ## Links
 
-* [https://git-scm.com/doc](https://git-scm.com/doc)
+* [Learn Git branching in an interactive way](https://learngitbranching.js.org/)
+* [Another platform to play interactively with Git](http://git-school.github.io/visualizing-git/)
+* [On undoing, fixing, or removing commits in git](http://sethrobertson.github.io/GitFixUm/fixup.html)
+* Need a Cheat Sheet?
+    * [Interactive git cheatsheet](http://www.ndpsoftware.com/git-cheatsheet.html)
+	* [Detailed pdf](https://users.aalto.fi/~darstr1/cheatsheets/git-for-normal-people-cheatsheet_1.0.pdf)
+	* [Cheat sheets in multiple languages](https://github.github.com/training-kit/) 
 
-* [http://sethrobertson.github.io/GitBestPractices/](http://sethrobertson.github.io/GitBestPractices/)
-* [https://try.github.io/](https://try.github.io/)
-* [http://gitready.com/](http://gitready.com/)
-* [http://git-school.github.io/visualizing-git/](http://git-school.github.io/visualizing-git/)
-* [http://documentup.com/skwp/git-workflows-book](http://documentup.com/skwp/git-workflows-book)
+* Other links:
+
+    * [https://git-scm.com/doc](https://git-scm.com/doc)
+    
+    * [http://sethrobertson.github.io/GitBestPractices/](http://sethrobertson.github.io/GitBestPractices/)
+    * [https://try.github.io/](https://try.github.io/)
+    * [http://gitready.com/](http://gitready.com/)
+    * [http://git-school.github.io/visualizing-git/](http://git-school.github.io/visualizing-git/)
+    * [http://documentup.com/skwp/git-workflows-book](http://documentup.com/skwp/git-workflows-book)
  
