@@ -17,7 +17,7 @@ keypoints:
 <img src="{{ site.baseurl }}/img/conflict-resolution/conflict.png" width="60%">
 
 In most cases a `git merge` runs smooth and automatic.
-Then a merge commit appears (unless fast-forward) without you even noticing.
+Then a merge commit appears (unless fast-forward: we will come back to that) without you even noticing.
 
 Git is very good at resolving modifications when merging branches.
 
@@ -36,7 +36,15 @@ Please remember:
 
 ## Type-along: create a conflict
 
-We will make two branches, make two conflicting changes (both increase
+We go back to our **recipe** example. 
+If you don't have it, please do:
+
+```shell
+$ git clone git@github.com:comp-sci-tools/recipe_merged.git fresh_recipe
+$ cd fresh_recipe
+```
+
+Now we will make two branches and make two conflicting changes (both increase
 and decrease the amount of cilantro), and then try to merge them
 together.  Git won't decide which to take for you, so will present it
 to you for deciding.  We do that and commit again to resolve the
@@ -47,19 +55,19 @@ conflict.
 ```shell
 $ git graph
 
-*   4b3e3cc (HEAD -> master, like-cilantro, dislike-cilantro) Merge branch 'less-salt'
-|\
-| * bf59be6 reduce amount of salt
-* |   80351a9 Merge branch 'experiment'
-|\ \
-| * | 6feb49d maybe little bit less cilantro
-| * | 7cf6d8c let us try with some cilantro
-| |/
-* | 40fbb90 draft a readme
-|/
-* dd4472c we should not forget to enjoy
-* 2bb9bb4 add half an onion
-* 2d79e7e adding ingredients and instructions
+*   f0272c2 (HEAD -> master, origin/master, origin/HEAD, like-cilantro, dislike-cilantro) Merge branch 'less-salt'
+|\  
+| * 89d5730 (origin/less-salt) reduce amount of salt
+* |   0e6c5b1 Merge branch 'experiment'
+|\ \  
+| * | d4d360e (origin/experiment) maybe little bit less cilantro
+| * | b859fe2 let us try with some cilantro
+| |/  
+* | b100795 draft a README.md file
+|/  
+* 78d6661 enjoy your dish!
+* 8094aee add half an onion
+* 4c02218 adding ingredients and instructions
 ```
 
 - On the two branches make **different modifications** to the amount of the **same ingredient**:
@@ -67,22 +75,22 @@ $ git graph
 ```shell
 $ git graph
 
-* eee4b85 (dislike-cilantro) reduce cilantro to 0.5
-| * 55d1ce2 (like-cilantro) please more cilantro
-|/
-*   4b3e3cc (HEAD -> master) Merge branch 'less-salt'
-|\
-| * bf59be6 reduce amount of salt
-* |   80351a9 Merge branch 'experiment'
-|\ \
-| * | 6feb49d maybe little bit less cilantro
-| * | 7cf6d8c let us try with some cilantro
-| |/
-* | 40fbb90 draft a readme
-|/
-* dd4472c we should not forget to enjoy
-* 2bb9bb4 add half an onion
-* 2d79e7e adding ingredients and instructions
+* b542667 (dislike-cilantro) reduce the amount of cilantro
+| * 5a35ac6 (like-cilantro) we try with more cilantro
+|/  
+*   f0272c2 (HEAD -> master, origin/master, origin/HEAD) Merge branch 'less-salt'
+|\  
+| * 89d5730 (origin/less-salt) reduce amount of salt
+* |   0e6c5b1 Merge branch 'experiment'
+|\ \  
+| * | d4d360e (origin/experiment) maybe little bit less cilantro
+| * | b859fe2 let us try with some cilantro
+| |/  
+* | b100795 draft a README.md file
+|/  
+* 78d6661 enjoy your dish!
+* 8094aee add half an onion
+* 4c02218 adding ingredients and instructions
 ```
 
 On the branch `like-cilantro` we have the following change:
@@ -93,7 +101,7 @@ $ git diff master like-cilantro
 
 ```diff
 diff --git a/ingredients.txt b/ingredients.txt
-index a83af39..83f2f94 100644
+index b9eaea2..2c7c2fd 100644
 --- a/ingredients.txt
 +++ b/ingredients.txt
 @@ -1,4 +1,4 @@
@@ -112,7 +120,7 @@ $ git diff master dislike-cilantro
 
 ```diff
 diff --git a/ingredients.txt b/ingredients.txt
-index a83af39..2f60e23 100644
+index b9eaea2..51010d8 100644
 --- a/ingredients.txt
 +++ b/ingredients.txt
 @@ -1,4 +1,4 @@
@@ -132,7 +140,7 @@ $ git checkout master
 $ git status
 $ git merge like-cilantro
 
-Updating 4b3e3cc..55d1ce2
+Updating f0272c2..5a35ac6
 Fast-forward
  ingredients.txt | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
@@ -156,6 +164,9 @@ but since there is a conflict, Git did not commit:
 $ git status
 
 On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
 You have unmerged paths.
   (fix conflicts and run "git commit")
   (use "git merge --abort" to abort the merge)
@@ -183,7 +194,7 @@ $ cat ingredients.txt
 * 2 avocados
 * 1 lime
 * 1 tsp salt
-* 1/2 onion
+* 1/2 salt
 ```
 
 Git inserted resolution markers (the `<<<<<<<`, `>>>>>>>`, and `=======`).
@@ -196,7 +207,7 @@ $ git diff
 
 ```diff
 diff --cc ingredients.txt
-index 83f2f94,2f60e23..0000000
+index 2c7c2fd,51010d8..0000000
 --- a/ingredients.txt
 +++ b/ingredients.txt
 @@@ -1,4 -1,4 +1,8 @@@
@@ -257,13 +268,43 @@ Simple steps:
 
 ---
 
-> ## (Optional) Exercise: Conflicts and rebase
->
-> 1. Create two branches where you anticipate a conflict.
-> 2. Try to merge them and observe that indeed they conflict.
-> 3. Abort the merge.
-> 4. What you if you rebase one branch on top of the other? Do you anticipate a conflict? Try it out.
-{: .challenge}
+## Using "ours" or "theirs" strategy
+
+- Sometimes you know that you want to keep "ours" version (version on this branch)
+  or "theirs" (version on the merged branch).
+- Then you do not have to resolve conflicts manually.
+- See [merge strategies](https://git-scm.com/docs/merge-strategies).
+
+Example:
+
+```shell
+$ git merge -s recursive -Xours less-avocados  # merge and in doubt take the changes from current branch
+```
+
+Or:
+
+```shell
+$ git merge -s recursive -Xtheirs less-avocados  # merge and in doubt take the changes from less-avocados branch
+```
+
+---
+
+## Aborting a conflicting merge
+
+- Imagine it is Friday evening, you try to merge but have conflicts all over the place.
+- You do not feel like resolving it now and want to undo the half-finished merge.
+- Or it is a conflict that you cannot resolve and only your colleague knows which version is the one to keep.
+
+What to do?
+
+- There is no reason to delete the whole repository.
+- You can undo the broken merge by resetting the repository to `HEAD` (last committed state).
+
+```shell
+$ git merge --abort
+```
+
+The repository looks then exactly as it was before the merge.
 
 ---
 
@@ -315,52 +356,3 @@ Simple steps:
 
 ---
 
-## Using "ours" or "theirs" strategy
-
-- Sometimes you know that you want to keep "ours" version (version on this branch)
-  or "theirs" (version on the merged branch).
-- Then you do not have to resolve conflicts manually.
-- See [merge strategies](https://git-scm.com/docs/merge-strategies).
-
-Example:
-
-```shell
-$ git merge -s recursive -Xours less-avocados  # merge and in doubt take the changes from current branch
-```
-
-Or:
-
-```shell
-$ git merge -s recursive -Xtheirs less-avocados  # merge and in doubt take the changes from less-avocados branch
-```
-
----
-
-## Aborting a conflicting merge
-
-- Imagine it is Friday evening, you try to merge but have conflicts all over the place.
-- You do not feel like resolving it now and want to undo the half-finished merge.
-- Or it is a conflict that you cannot resolve and only your colleague knows which version is the one to keep.
-
-What to do?
-
-- There is no reason to delete the whole repository.
-- You can undo the broken merge by resetting the repository to `HEAD` (last committed state).
-
-```shell
-$ git merge --abort
-```
-
-The repository looks then exactly as it was before the merge.
-
----
-
-## Avoiding conflicts
-
-- Human measures
-  - Think and plan to which branch you will commit to.
-  - Branches for "everything" maximize risk of conflicts.
-  - Use one branch for one task only.
-- Collaboration measures
-  - Conflicts can be avoided if you think and talk with your colleagues before committing.
-  - Semantic conflicts that merge but don't work: Importance of talking!

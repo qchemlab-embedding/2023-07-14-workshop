@@ -103,7 +103,7 @@ $ git branch -d museum
 
 ---
 
-## Finding out when something broke with `git bisect`
+## (Optional) Finding out when something broke with `git bisect`
 
 > *But I am sure it used to work! Strange.*
 

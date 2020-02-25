@@ -147,19 +147,46 @@ Another job well done.
 In the following exercises you will practice cherry-picking commits, testing combinations of 
 features, and rewinding the `master` branch.  
 
-Start by cloning a fresh copy of the [guacamole repository](https://github.com/coderefinery/recipe.git):
+Let's continue with "recipe" directory from the previous episode:
 
 ```shell
-$ git clone https://github.com/coderefinery/recipe.git
+$ git graph
+
+*   13792bc (HEAD -> master) Merge branch 'dislike-cilantro'
+|\  
+| * b542667 reduce the amount of cilantro
+* | 5a35ac6 we try with more cilantro
+|/  
+*   f0272c2 (origin/master, origin/HEAD) Merge branch 'less-salt'
+|\  
+| * 89d5730 (origin/less-salt) reduce amount of salt
+* |   0e6c5b1 Merge branch 'experiment'
+|\ \  
+| * | d4d360e (origin/experiment) maybe little bit less cilantro
+| * | b859fe2 let us try with some cilantro
+| |/  
+* | b100795 draft a README.md file
+|/  
+* 78d6661 enjoy your dish!
+* 8094aee add half an onion
+* 4c02218 adding ingredients and instructions
+```
+
+And create a `dev` branch:
+
+```shell
+$ git branch
+  dev
+* master
 ```
 
 ### Exercise 1: Cherry-picking commits
 
-This guacamole project has two branches, `master` and `dev`. You will fix a "bug"
+We will fix a "bug"
 on the `dev` branch, and then cherry-pick it to `master`.
 
  - First checkout the `dev` branch.
- - Then add onion at the top of the ingredients file (fixing the bug).
+ - Then replace "salt" with "onion" in the last line of the ingredients file (fixing the bug).
  - Realize that you committed to the wrong branch.
  - Switch to the `master` branch, and cherry-pick the bugfix from the `dev` branch.
  - Inspect the result with `git graph`.
