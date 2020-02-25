@@ -15,10 +15,12 @@ objectives:
  
 
 * using Git on LaTeX files:
+
 	* "git is good at merges, given reasonable input" ([reference](https://tex.stackexchange.com/questions/441944/how-well-does-git-handle-merges))
 
     * some suggestions:
 		* "write each sentence on a separate line" ([reference](https://stackoverflow.com/questions/6188780/git-latex-workflow))
+        * use branches, then test the integration of features on a separate branch before merging the 'final' version to master (see ['Testing combinations of features' exercise](https://comp-sci-tools.github.io/git-intro/12-branch-design-avoiding-conflicts/#exercise-2-testing-combinations-of-features))
 
 
     * tools to consider (not tested):

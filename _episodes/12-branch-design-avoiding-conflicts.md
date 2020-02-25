@@ -14,11 +14,11 @@ keypoints:
 
 ## Avoiding conflicts
 
-- Develop on feature branches!
-- Conflicts can be avoided if you think and talk with your colleagues before committing.
+- **Develop on feature branches!**
+- Conflicts can be avoided if you think and **talk with your colleagues before committing**.
 - Monolithic entangled spaghetti-code maximizes risk of conflicts.
-- Modular programming minimizes risk of conflicts.
-- Resolve conflicts early.
+- **Modular programming** minimizes risk of conflicts.
+- Resolve conflicts **early**.
 - If a branch affects code that is likely to be modified by others, the
   branch should:
   - be short-lived and/or merge often to the main development line.
@@ -47,11 +47,11 @@ keypoints:
 - I develop `feature-a`, my colleague develops `feature-b`.
 - Both are not ready yet to go into the main line.
 - How can we test their combination?
-- Do not cross-merge feature branches.
+- **Do not cross-merge feature branches.**
 - Reason: if `feature-a` becomes ready, it cannot be integrated to the main line
   because it is then diluted with `feature-b`.
-- Test combinations on integration branches.
-- Integration branches only receive merges, we do not "work" on them.
+- **Test combinations on integration branches.**
+- **Integration branches only receive merges, we do not "work" on them.**
 - Same holds for testing combinations with the main line.
 - The main line should ideally be an integration branch.
 
