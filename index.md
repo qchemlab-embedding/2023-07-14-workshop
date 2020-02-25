@@ -7,7 +7,13 @@ permalink: /
 
 This is the introductory lesson to version control
 using [Git](https://git-scm.com/), 
-modified after the [CodeRefinery tutorial](https://coderefinery.github.io/git-intro/).
+based on the [CodeRefinery](https://coderefinery.org/) tutorials:
+
+* [Introduction to version control with Git](https://coderefinery.github.io/git-intro/)
+* [Git branch design lesson](https://coderefinery.github.io/git-branch-design/)
+* [Collaborative distributed version control](https://coderefinery.github.io/git-collaborative/)
+
+The material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/).
 
 
 ## Goals

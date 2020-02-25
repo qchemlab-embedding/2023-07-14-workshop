@@ -14,4 +14,13 @@ objectives:
 	* [more comments from stackoverflow](https://stackoverflow.com/questions/22439517/view-docx-file-on-github-and-use-git-diff-on-docx-file-format/32712206)
  
 
+* using Git on LaTeX files:
+	* "git is good at merges, given reasonable input" ([reference](https://tex.stackexchange.com/questions/441944/how-well-does-git-handle-merges))
+
+    * some suggestions:
+		* "write each sentence on a separate line" ([reference](https://stackoverflow.com/questions/6188780/git-latex-workflow))
+
+
+    * tools to consider (not tested):
+		* [git-latexdiff](https://github.com/redreamality/git-latexdiff)
 
