@@ -18,8 +18,6 @@ keypoints:
 ---
 
 
-## Git merge: recursive and fast-forward strategies
-
 
 ## Rebase vs. merge
 
