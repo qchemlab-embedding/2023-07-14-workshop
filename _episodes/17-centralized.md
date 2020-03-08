@@ -1,11 +1,10 @@
 ---
 layout: episode
-title: Working with remotes and centralized workflow
+title: Centralized workflow exercise
 teaching: 10
 exercises: 20
 questions:
-  - How can we share repositories with others?
-  - How can we keep repositories in sync?
+  - How to contribute to centralized Git repositories?
 objectives:
   - Understand the difference between local branch, origin/branch, and remote branch.
 keypoints:
@@ -17,7 +16,6 @@ keypoints:
   - "`origin` pointers only move when you `git fetch`/`git pull` or `git push`."
 ---
 
-# Centralized workflow exercise
 
 In this exercise, we practice collaborative centralized workflow.
 First, we all **clone** (make a local copy) and try to **push** (send

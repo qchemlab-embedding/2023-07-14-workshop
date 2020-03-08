@@ -1,6 +1,6 @@
 ---
 layout: episode
-title: Working with remotes, distributed version control
+title: Working with remotes. Distributed version control.
 teaching: 15
 exercises: 0
 questions:
@@ -166,5 +166,22 @@ To see all remotes:
 ```shell
 $ git remote --verbose
 ```
+
+
+<br>
+<br>
+<br>
+![]({{ site.baseurl }}/img/git-collaborative/forking/remote.jpg)
+## Luke Skywalker: *You know, I did feel something. I could almost see the remote.*
+
+## Ben Kenobi: *That's good. You've taken your first step into a larger world.*
+
+(from Star Wars Episode IV - A New Hope)
+
+<br>
+<br>
+<br>
+
+---
 
 
