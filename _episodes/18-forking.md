@@ -37,7 +37,7 @@ inspired by [tacofancy](https://github.com/sinker/tacofancy).
 
 * We will fork a new repository, please make sure you are not in existing Git repository.
 
-* On your GitHub, first fork [this repository]({{ site.forking_workflow_exercise_url }})
+* On your GitHub, first fork [this repository](https://github.com/comp-sci-tools/forking-workflow-exercise)
 into your namespace and then clone the fork to your computer.
 
 Here is a pictorial representation of this part:

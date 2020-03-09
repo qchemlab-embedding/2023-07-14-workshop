@@ -14,6 +14,8 @@ keypoints:
 
 ## Very minor changes
 
+Recommended steps:
+
 - Fork repository
 - Create a branch
 - Commit and push change
