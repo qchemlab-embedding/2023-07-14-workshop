@@ -8,9 +8,7 @@ questions:
 objectives:
   - Understand the difference between local branch, origin/branch, and remote branch.
 keypoints:
-  - "`git clone` copies everything and sets some pointers to remember where the clone came from."
-  - You communicate commits with `git fetch`/`git pull` and `git push`.
-  - All other Git operations are offline - you can work on a plane while your coworker is on vacation in North Korea.
+  - You communicate commits with `git fetch`/`git pull` and `git push` (these are the only Git operations done online).
   - "`origin` refers to where you cloned from (but you can relocate it)."
   - "`origin/foo` is a read-only pointer to branch `foo` on origin."
   - "`origin` pointers only move when you `git fetch`/`git pull` or `git push`."
@@ -39,10 +37,10 @@ and discuss a number of typical pitfalls.
 ### 1. Clone [this repository](https://github.com/comp-sci-tools/centralized-workflow-exercise)
 
 ```
-$ git clone https://github.com/comp-sci-tools/centralized-workflow-exercise centralized-workflow-exercise
+$ git clone git@github.com:comp-sci-tools/centralized-workflow-exercise.git centralized-workflow-exercise
 ```
 
-Note: instead of using https you can also clone using ssh keys:
+Note: set up ssh keys:
 - [https://help.github.com/articles/connecting-to-github-with-ssh/](https://help.github.com/articles/connecting-to-github-with-ssh/)
 - [https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html](https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html)
 

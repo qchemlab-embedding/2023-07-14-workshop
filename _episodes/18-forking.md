@@ -12,12 +12,9 @@ objectives:
   - Learn how to fork, modify the fork, and file a pull request towards the forked repo.
   - Learn how to update your fork with upstream changes.
 keypoints:
-  - Working with multiple remotes is not as scary as it looks.
-  - "`origin` is just an alias."
   - We can add and remove remotes.
   - We can call these aliases as we like.
   - We synchronize remotes via the local clone.
-  - "To see all remotes use `git remote -v`."
   - If you are more than one person contributing to a project, implement code review.
 ---
 
@@ -79,14 +76,9 @@ Before we do any modification, we create a new branch and switch to it: this is
 a good reflex and a good practice. Choose a branch name which is descriptive of
 its content.
 
-On the new branch create a new file which will hold your recipe.,
-You can get inspired
-[here](https://github.com/sinker/tacofancy/tree/master/full_tacos). 
+On the new branch create a new file which will hold your recipe.
 Hopefully we all use different
 file names, otherwise we will experience conflicts later (which is also interesting!).
-
-There is also a file called `test.py` which will automatically verify whether your recipe contains the string
-"taco" (case insensitive). This is there to slowly introduce us to automated testing.
 
 Once you are happy with your recipe, commit the change and in your commit
 message reference the issue which you have opened earlier with "this is my
@@ -172,7 +164,7 @@ We will discuss two solutions:
 - How do we get these changes to the forked repo?
 
 ```shell
-$ git remote add upstream {{ site.forking_workflow_exercise_url }}.git
+$ git remote add upstream https://github.com/comp-sci-tools/forking-workflow-exercise.git
 $ git fetch upstream
 ```
 
@@ -212,7 +204,7 @@ Here we pull from the central repo and push to our fork:
 
 ```shell
 $ git checkout master
-$ git pull {{ site.forking_workflow_exercise_url }}.git master
+$ git pull https://github.com/comp-sci-tools/forking-workflow-exercise.git master
 $ git push https://github.com/user/forking-workflow-exercise.git master
 ```
 
