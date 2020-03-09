@@ -192,17 +192,23 @@ $ git remote --verbose
 
 # Useful commands
 
-* We already saw that `git diff` can be very useful in various contexts. 
- For example this command: 
+* We already know Git commands that can help to inspect changes.
+  And we can use them to compare the branches in local and remote repositories. For example:
 
-```shell
-$ git diff HEAD origin/master
-```
+    * `git diff` that allows to compare your current `HEAD` with `master` branch on remote `origin`:
 
-allows to compare your current `HEAD` with `master` branch on remote `origin`.
-This is helpful to inspect what you are about to push. 
+        ```shell
+        $ git diff HEAD origin/master
+        ```
+        
+        is helpful to inspect what you are about to push. We know we can add various flags to `git diff` (e.g. `--stat`, `--numstat`, etc.)
 
-Various flags to `git diff` can be added (e.g. `--stat`, `--numstat`, etc.)
+
+    * `git log` allows to list commits on a local `master` branch that are about to be pushed to `origin/master`:
+
+        ```shell
+        $ git log --oneline origin/master..master
+        ```
 
 
 * Many Git commands also have `--dry-run` flag. For instance `git push --dry-run` will "simulate git push" but not execute it.
