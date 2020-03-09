@@ -12,13 +12,14 @@ keypoints:
   - "`git clone` copies everything and sets some pointers to remember where the clone came from."
   - "`origin` is just an alias."
   - We can add and remove remotes.
+  - We can have multiple remotes.
   - We can call these aliases as we like.
   - We synchronize remotes via the local clone.
   - "To see all remotes use `git remote -v`."
 ---
 
 
-# Situation
+# Motivation
 
 - Someone has given you access to a repository online and you want to contribute to it.
 - You would like others to contribute to your online repository.
@@ -27,10 +28,6 @@ keypoints:
 # Basics
 
 We already discussed some basics of working with remotes in [this lesson](../08-remotes).
-
-* Technically, a **remote** repository is only used as a collaboration point, it’s just the Git data.
-* Git can use different protocols to transfer data: Local, HTTP, SSH and Git (more on that [here](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols)).
-
 
 ## Cloning repositories
 
@@ -56,11 +53,10 @@ $ git clone https://host.com/user/project.git project
 
 # Distributed version control
 
-
 Git implements a **distributed** version control.
 
 This means that any type of repository links that you can think of can be
-implemented - not just "everything connects to one central server.
+implemented - not just "everything connects to one central server".
 
 So every developer can do both:
 * contribute code to other repositories
@@ -167,14 +163,19 @@ To see all remotes:
 $ git remote --verbose
 ```
 
+* Technically, a **remote** repository is only used as a collaboration point, it’s just the Git data.
+* Git can use different protocols to transfer data: Local, HTTP, SSH and Git (more on that [here](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols)).
+
 
 <br>
 <br>
 <br>
 ![]({{ site.baseurl }}/img/git-collaborative/forking/remote.jpg)
-## Luke Skywalker: *You know, I did feel something. I could almost see the remote.*
+<br>
 
-## Ben Kenobi: *That's good. You've taken your first step into a larger world.*
+**Luke Skywalker:** *You know, I did feel something. I could almost see the remote.*
+
+**Ben Kenobi:** *That's good. You've taken your first step into a larger world.*
 
 (from Star Wars Episode IV - A New Hope)
 

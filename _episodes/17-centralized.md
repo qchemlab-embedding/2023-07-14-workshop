@@ -17,7 +17,11 @@ keypoints:
 ---
 
 
-In this exercise, we practice collaborative centralized workflow.
+In this exercise, we practice collaborative centralized workflow:
+
+![]({{ site.baseurl }}/img/git-collaborative/forking/centralized.svg)
+
+
 First, we all **clone** (make a local copy) and try to **push** (send
 code to) the main repository.  We'll see a small problem with that,
 and then make a **pull request** (sending code so that others can
@@ -25,15 +29,11 @@ review and accept later).  We'll discuss how this leads to code review
 and discuss a number of typical pitfalls.
 
 
-## Before we start
+## Before we start:
 
-Everyone needs their GitHub account to be added to our central repository.
-
-1. Participants add their usernames to a shared document.
-2. Instructor adds participants as collaborators to this project.
-
-
-## After participants have been added as collaborators
+* Everyone needs their GitHub account to be added to our central repository.
+* Please add your username to [this document](https://hackmd.io/@gosia/BkUkMsXBU).
+* Then I will add you as a collaborator to this project.
 
 
 ### 1. Clone [this repository](https://github.com/comp-sci-tools/centralized-workflow-exercise)

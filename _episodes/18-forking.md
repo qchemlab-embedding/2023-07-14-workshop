@@ -8,10 +8,9 @@ questions:
   - What is a fork?
   - What is a pull request or merge request?
   - What is code review?
-  - How do teams collaborate on GitHub or GitLab or Bitbucket?
 objectives:
-  - Get a mental representation of what is happening on GitHub.
-  - Get comfortable with the forking workflow.
+  - Learn how to fork, modify the fork, and file a pull request towards the forked repo.
+  - Learn how to update your fork with upstream changes.
 keypoints:
   - Working with multiple remotes is not as scary as it looks.
   - "`origin` is just an alias."
@@ -22,38 +21,23 @@ keypoints:
   - If you are more than one person contributing to a project, implement code review.
 ---
 
+In this exercise, we practice collaborative forking workflow:
 
-In this exercise, we make a fork, push to that fork, and make a pull
+![]({{ site.baseurl }}/img/git-collaborative/forking/forking-overview.svg)
+
+We make a fork, push to that fork, and make a pull
 request to the "central" repository. Later we will exercise updating the individual forks
 after changes from all participants have been merged.
 
 As an example we will collaboratively develop a cookbook for taco recipes,
 inspired by [tacofancy](https://github.com/sinker/tacofancy).
 
-We recommend that you discuss with your neighbor throughout the exercise.
-
-Objectives:
-
-- Learn how to fork, modify the fork, and file a pull request towards the forked repo.
-- Learn how to update your fork with upstream changes.
-
-We will do this exercise on [GitHub](https://github.com) but also
-[GitLab](https://gitlab.com) and [Bitbucket](https://bitbucket.org) allow
-similar workflows and basically everything that we will discuss is transferable.
-
-<div class="alert alert-dismissible alert-warning">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
-  <h4 class="alert-heading">We will work with a new repository for this exercise!</h4>
-  <p>
-    For this exercise we will fork a different repository compared to earlier today.
-    Please step out of the repository and check that you fork the <b>forking</b>-workflow-exercise.
-  </p>
-</div>
-
 
 ### Part A: Fork and clone
 
-First fork [this repository]({{ site.forking_workflow_exercise_url }})
+* We will fork a new repository, please make sure you are not in existing Git repository.
+
+* On your GitHub, first fork [this repository]({{ site.forking_workflow_exercise_url }})
 into your namespace and then clone the fork to your computer.
 
 Here is a pictorial representation of this part:
@@ -81,13 +65,12 @@ After we clone the fork we have three in principle independent repositories:
 
 ### Part B: Open an "issue" as a change proposal
 
-Before we start any coding, open a new "Issue" on the central repository as a
+Before we start any development, open a new "Issue" on the central repository as a
 "proposal" where you describe your idea for a recipe with the possibility to
 collect feedback from others. After creating this issue note the issue number.
 We will later refer to this issue number.
 
-Discuss with your neighbor why it can be useful to open an issue before
-starting the actual coding.
+**Question:** why it can be useful to open an issue before starting the actual work?
 
 
 ### Part C: Modify and commit
@@ -96,9 +79,10 @@ Before we do any modification, we create a new branch and switch to it: this is
 a good reflex and a good practice. Choose a branch name which is descriptive of
 its content.
 
-On the new branch create a new file which will hold your recipe,
-for instance `traditional_coderefinery_tacos.md` (but change the name). You can get inspired
-[here](https://github.com/sinker/tacofancy/tree/master/full_tacos). Hopefully we all use different
+On the new branch create a new file which will hold your recipe.,
+You can get inspired
+[here](https://github.com/sinker/tacofancy/tree/master/full_tacos). 
+Hopefully we all use different
 file names, otherwise we will experience conflicts later (which is also interesting!).
 
 There is also a file called `test.py` which will automatically verify whether your recipe contains the string
@@ -159,16 +143,9 @@ Observe how the issues automatically close after the pull requests are merged
 (provided the commit messages contain [the right keywords](https://help.github.com/en/articles/closing-issues-using-keywords)).
 
 
-> ## (Optional) Exercise: try to send a conflicting pull request
->
-> If you complete parts A-E much earlier than others, try to send another pull request
-> where you anticipate a conflict with your first pull request.
-{: .challenge}
-
-> ## (Optional) Exercise: practice making changes to your pull request
->
-> You can do that by pushing new commits to the branch where you sent the pull
-> request from. Observe how they end up added to your pull request.
+> ## (Optional) exercise:
+> * Try to send another pull request where you anticipate a conflict with your first pull request.
+> * Make changes to your pull request: push new commits to the branch where you sent the pull request from.
 {: .challenge}
 
 
