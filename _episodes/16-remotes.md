@@ -154,6 +154,11 @@ $ git remote rm upstream
 $ git remote add group-repo https://example.com/exciting-project.git
 $ git remote rm group-repo
 ```
+- We can rename remotes:
+
+```shell
+$ git remote rename <old> <new>
+```
 
 We synchronize remotes via the local clone.
 
