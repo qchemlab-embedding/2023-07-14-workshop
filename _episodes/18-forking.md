@@ -26,9 +26,6 @@ We make a fork, push to that fork, and make a pull
 request to the "central" repository. Later we will exercise updating the individual forks
 after changes from all participants have been merged.
 
-As an example we will collaboratively develop a cookbook for taco recipes,
-inspired by [tacofancy](https://github.com/sinker/tacofancy).
-
 
 ### Part A: Fork and clone
 
