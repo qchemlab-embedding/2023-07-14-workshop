@@ -165,7 +165,7 @@ We synchronize remotes via the local clone.
 To see all remotes:
 
 ```shell
-$ git remote --verbose
+$ git remote -v
 ```
 
 * Technically, a **remote** repository is only used as a collaboration point, it’s just the Git data.
