@@ -30,8 +30,6 @@ and discuss a number of typical pitfalls.
 ## Before we start:
 
 * Everyone needs their GitHub account to be added to our central repository.
-* Please add your username to [this document](https://hackmd.io/@gosia/BkUkMsXBU).
-* Then I will add you as a collaborator to this project.
 
 
 ### 1. Clone [this repository](https://github.com/comp-sci-tools/centralized-workflow-exercise)
