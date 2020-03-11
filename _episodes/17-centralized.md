@@ -30,6 +30,9 @@ and discuss a number of typical pitfalls.
 ## Before we start:
 
 * Everyone needs their GitHub account to be added to our central repository.
+* Participants add their usernames to a shared document.
+* Instructor adds participants as collaborators to this project.
+
 
 
 ### 1. Clone [this repository](https://github.com/comp-sci-tools/centralized-workflow-exercise)
