@@ -1,6 +1,6 @@
-fork_me_ribbon_url: https://github.com/comp-sci-tools/git-intro
-baseurl: "/git-intro"
-title: "Introduction to git"
+fork_me_ribbon_url: https://github.com/qchemlab-embedding/2023-07-14-workshop
+baseurl: "/2023-07-14-workshop"
+title: "Introduction to the qchemlab-embedding project"
 
 source: .
 destination: ./_site
