@@ -1,14 +1,12 @@
 ---
 layout: episode
-title: Your first calculations in DIRAC
+title: Your first calculations in DIRAC on Ares
 teaching: 0
 exercises: 60
-questions:
-  -
 objectives:
-  - Run your first DIRAC calculations.
-  - Go through the DIRAC output, make sure you understand what is reported.
-  - Tips, links, resources
+  - Run your first DIRAC calculations on the Ares cluster.
+  - Get familiar with the DIRAC output.
+  - Share tips, links, resources
 ---
 
 
@@ -85,7 +83,7 @@ objectives:
       pam --inp=dc_hf_cc-pvdz.inp --mol=h2o.xyz
       ```
 
-      where `pam` points to the `DIRAC` script available in `DIRAC` build directory.
+      where `pam` points to the `DIRAC` script available in the program's build directory.
 
 
 - In the `run.sh` script file, you will always need to adjust resources required for the job. This is done in the beginning of the `run.sh` script file. 
@@ -97,7 +95,7 @@ objectives:
     #SBATCH --ntasks-per-node=8            #<--- number of CPUs per 1 node
     #SBATCH --mem-per-cpu=5GB              #<--- memory on each core
     #SBATCH --time=01:00:00                #<--- time (total execution time)
-    #SBATCH -A plgqctda2-cpu               #<--- calculation grant name
+    #SBATCH -A plgqctda2-cpu               #<--- calculation grant name (we will all use this one)
     #SBATCH -p plgrid-testing              #<--- partition name (*)
     #SBATCH --output="output.out"
     #SBATCH --error="error.err"
@@ -145,13 +143,13 @@ objectives:
 
 - Some more advice/good practices:
 
-  - I like to do each calculation in a separate directory (avoids accidental overwriting; may be easier for postprocessing)
+  - Ares cluster has a small `$HOME` space, so make sure you redirect large files that you want to keep to a storage space (create your directories there; [more information](https://docs.cyfronet.pl/display/~plgpawlik/Ares#Ares-Storage))
+    - text files (e.g. `DIRAC`'s `*.out` file) are typically small; but the data files (`*.h5`) can get large,
 
-  - Ares cluster has a small `$HOME` space, so make sure you redirect large files that you want to keep to a storage space ([more information](https://docs.cyfronet.pl/display/~plgpawlik/Ares#Ares-Storage))
-    - text files (e.g. `DIRAC`'s `*.out` file) are typically small; but the data file (`*.h5`) can get large
-    - so I like to redirect data files to a directory in the dedicated Ares storage space:
-      - first, I need to define the storage space: `export data_dir=$PLG_GROUPS_STORAGE/plggqcembed/dirac_tests/workshops_data/workshop_14july2023`
-      - then, I need to tell `pam` not to produce the `<input file>_<molecule file>.h5` file in my `$HOME`, but to move the data file to storage `--noh5 --get="CHECKPOINT.h5=$bin_dir/CHECKPOINT.h5"` (**note:** the `<input file>_<molecule file>.h5` which we had in `$HOME` is a copy of `CHECKPOINT.h5`)
+    - most of the time, I redirect data files to a directory in the dedicated Ares storage space:
+
+      - first, I define the storage space, e.g. `export data_dir=$PLG_GROUPS_STORAGE/plggqcembed/dirac_tests/workshops_data/workshop_14july2023`
+      - then, I tell `pam` script not to produce the `<input file>_<molecule file>.h5` file in my `$HOME`, but to move the data file to storage `--noh5 --get="CHECKPOINT.h5=$bin_dir/CHECKPOINT.h5"` (**note:** the `<input file>_<molecule file>.h5` which we had in `$HOME` is a copy of `CHECKPOINT.h5`)
       - so, in this case, my `run.sh` script is the following:
 
         ```shell
@@ -188,7 +186,7 @@ objectives:
 
   - Do not be shy to ask for help on PlGrid in case of cluster troubles/questions (their helpdesk is fantastic, I use it all the time)
 
-  - To do less typing, I like to use aliases for longer `Bash` commands. For instance, I use:
+  - To do less typing, I like to use aliases for longer `bash` commands. For instance, I use:
 
     ```shell
     alias qg='squeue -u plggosiao'
@@ -196,7 +194,9 @@ objectives:
 
     in my `.bashrc` script, which allows me to type `qg` instead of `squeue -u plggosiao` when I want to check the status of jobs;
 
-  - Keep track of your calculations, sometimes you will need to restart with different setup/resources (I am writing a "calculation log" for myself)
+  - I like to do each calculation in a separate directory (avoids accidental overwriting; may be easier for postprocessing),
+
+  - Keep track of your calculations, sometimes you will need to restart with different setup/resources (e.g., I am maintaining a "calculation log").
 
 
 
@@ -228,18 +228,11 @@ objectives:
       - "Hamiltonian defined" - the default is the Dirac-Coulomb Hamiltonian (so we did not need to have the `**HAMILTONIAN` section in the input)
       - "Wave function module" - this is Hartree-Fock calculations (we asked for `.SCF` in the input)
 
-
-
 - Since we asked for the energy calculations, `DIRAC` reports energy optimization
   - it starts with "Hartree-Fock calculation", and the summary is in the table under `SCF - CYCLE` together with thresholds applied in optimization 
   - the results we might be interested in are:
     - the "Electronic energy" (here: -85.270254178593248 atomic units) or the "Total energy" (here: -76.081560919738394 atomic units),
     - the energies of HOMO and LUMO orbitals and the gap between them ("HOMO - LUMO gap").
-
-
-
-
-
 
 
 # Tips/comments:
@@ -258,38 +251,42 @@ objectives:
 
 
   - Where to take the molecular data from?
-
     - Use online molecular databases. For example, a [NIST database for experimental data](https://cccbdb.nist.gov/exp1x.asp).
-    - Look in supplementary information to research publications. For example, here we did the calculations on the water molecule. Its geometry is taken from the publication (reference in the `*.xyz` file). 
+    - Look in supplementary information to research publications (and keep the reference). For example, here we did the calculations on the water molecule. Its geometry is taken from the publication (reference in the `*.xyz` file). 
       - If the publication discusses the molecule you want to study, but the authors do not share the data, then don't be shy to write them an email
-    - Build the molecule yourself. There are excellent free tools that let you build the molecule and preoptimize its geometry (using "poor" methods). For instance:
-      - Avogadro
-      - tool 2
-      - **NOTE:** is you build the molecule yourself in one of these tools, make sure you follow up with the geometry optimization using better methods.
-    - If you have the molecular data in formats other then the one accepted by `DIRAC`, you can try the ... tool to convert the files.
+    - Build the molecule yourself. There are excellent open-source tools that let you build the molecule and preoptimize its geometry (using "poor" methods), and ADF resources available on Ares. For instance:
+      - [Avogadro](https://avogadro.cc/)
+      - [MolView](https://molview.org/)
+      - we can use the `ADF` tools on Ares ([ADF-GUI tool](https://www.scm.com/doc/GUI/Building_molecules.html)),
+      - **NOTE:** if you build the molecule yourself in one of these tools, make sure you follow up with the geometry optimization using better methods.
+    - If you have the molecular data in formats other then the one accepted by `DIRAC`, you can try the [Open Babel tool](https://openbabel.org/docs/dev/Command-line_tools/babel.html) to convert the files.
     - My advice is to default to `.xyz` file format which has the Cartesian coordinates of all atoms in the molecular system (you don't need to know about the connectivity of atoms, nor molecular symmetry) - this format is understood by most chemical software and the Cartesian coordinates are the easiest to manipulate.
     
   - How to know which DIRAC keywords should be used in the input?
-    - All calculations start with the selection of the model - so you know which (1) basis set, (2) method, and (3) Hamiltonian you want to use
+    - All calculations start with the selection of the model (see 01-introduction) - so you know which (1) basis set, (2) method, and (3) Hamiltonian you want to use
       - For the basis sets:
-        - you may want to use one of the sets available in `DIRAC` - on Ares, you may want to look at these two directories:
+        - you may want to use one of the sets available in `DIRAC` - on Ares, you may want to look in these directories:
+          - `/net/pr2/projects/plgrid/plggqcembed/devel/dirac/build-master-public-intel202140/basis`, `/net/pr2/projects/plgrid/plggqcembed/devel/dirac/build-master-public-intel202140/basis_dalton`, `/net/pr2/projects/plgrid/plggqcembed/devel/dirac/build-master-public-intel202140/basis_ecp` 
         - or you may decide to use an external basis set; 
-          - I like to use the following resources:
-            - "emsl link"
+          - e.g., search in [online database](https://www.basissetexchange.org/),
           - in this case, have a look at `DIRAC` tutorials on how to define your own basis set in the input
 
   - How to know how many cluster resources your calculation require?
     - This will mostly be through trial and error, but:
       - `DIRAC` always runs single-threaded, so you'll always need `#SBATCH -N 1`
-      - Some excellent resources:
+      - you can keep the default/advised setup in the preamble (only change the partition and the number of nodes), but adapt the resources with which you want to run `DIRAC`; for that look for the description of various options to the DIRAC's `pam` script, e.g.:
 
-  - If you know you always use certain settings, it might be useful to keep them in `rc` files. For instance,
-    - read more about `pamrc` here:
-    - adapt your `~/.bashrc`
-    - I share my `rc` files that I use on Ares here:
+      ```shell
+      module load dirac/23.0-intel-2021b
+      pam-dirac --help
+      ```
+
+      and find "Memory specification:" section
+
+  - If you know you always use certain settings, it might be useful to keep them in `rc` files. For instance, I like to maintain the `~/.bashrc` and `~/.vimrc` scripts (since I use `bash` and `vim`). Also, DIRAC looks for the `~/.diracrc` file, so you can store the settings that you use in all your `DIRAC` calculations.
 
 
-  - Do you have other tips from your own experience that you'd like to share?
+  - **Do you have other tips from your own experience that you'd like to share?**
 
 
 
