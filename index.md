@@ -20,9 +20,7 @@ This is the introductory workshop
 * 15h15 - 16h15: ADF
 * 16h15 - 17h15: pyadf
 
-## Prerequisites
-
-Please prepare in advance:
+## Prerequisites - please prepare in advance:
 
 * on the Ares cluster:
 
@@ -42,6 +40,15 @@ Please prepare in advance:
   * if you want to have `DIRAC` installed on your local machine:
     * you can download the recent release
     * if you are interested in the `DIRAC` code development, please let me know
+
+
+# Links - external resources
+
+* [CodeRefinery](https://coderefinery.org/)
+* The Carpentries:
+    * [Software Carpentry](https://software-carpentry.org/)
+    * [Data Carpentry](https://datacarpentry.org/)
+    * [HPC Carpentry](https://hpc-carpentry.github.io/)
 
 
 
