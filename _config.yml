@@ -21,8 +21,3 @@ collections:
   episodes:
     output: true
     permalink: /:name/
-  # guides are in a collection, otherwise site variables
-  # like centralized_workflow_exercise_url are not understood
-  guides:
-    output: true
-    permalink: /:name/

@@ -14,11 +14,12 @@ This is the introductory workshop
 
 ## Tentative schedule
 
-* 13h30 - 14h00: intro
-* 14h00 - 15h00: DIRAC
+* 13h30 - 13h45: [Theoretical introduction: basics](01-introduction)
+* 13h45 - 14h00: [Theoretical introduction: FDE](02-fde)
+* 14h00 - 15h00: [DIRAC - first steps](03-DIRAC-first-steps)
 * 15h00 - 15h15: break
-* 15h15 - 16h15: ADF
-* 16h15 - 17h15: pyadf
+* 15h15 - 16h15: [ADF - first steps](05-ADF-first-steps)
+* 16h15 - 17h15: [FDE - first steps in ADF and pyADF](06-FDE-calculations)
 
 ## Prerequisites - please prepare in advance:
 
@@ -40,21 +41,5 @@ This is the introductory workshop
   * if you want to have `DIRAC` installed on your local machine:
     * you can download the recent release
     * if you are interested in the `DIRAC` code development, please let me know
-
-
-# Links - external resources
-
-* [CodeRefinery](https://coderefinery.org/)
-* The Carpentries:
-    * [Software Carpentry](https://software-carpentry.org/)
-    * [Data Carpentry](https://datacarpentry.org/)
-    * [HPC Carpentry](https://hpc-carpentry.github.io/)
-
-
-
-# Credit and licence
-
-The material is made available under the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/).
-Lesson template based on [comp-sci-tools](), originally forked from the [Coderefinery workshop template]()
 
 
