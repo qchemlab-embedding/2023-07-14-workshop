@@ -1,6 +1,6 @@
 ---
 layout: episode
-title: Your first FDE calculations - ADF, pyADF, DIRAC
+title: Your first FDE calculations - ADF, PyADF, DIRAC
 teaching: 0
 exercises: 60
 objectives:
@@ -15,7 +15,13 @@ objectives:
   - for one selected example, see how do the FDE results compare to the supermolecular results
   - do you see how to run freeze-and-thaw cycles (look for "RELAX" keyword)? Does it improve the prediction?
 
-## Running FDE calculations in pyADF
+## Running FDE calculations in PyADF
+
 
 WIP
+
+### Further read
+
+* PyADF - A scripting framework for multiscale quantum chemistry, DOI:10.1002/jcc.21810 (also in our Zotero)
+
 
