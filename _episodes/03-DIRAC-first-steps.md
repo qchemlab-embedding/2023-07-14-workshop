@@ -13,6 +13,8 @@ objectives:
 
 ## Running environment and input files
 
+- Input files and run scripts are available [here](https://github.com/qchemlab-embedding/2023-07-14-workshop-exercises/tree/main/dirac/energy-h2o_dc_hf_cc-pvdz)
+
 - In our first calculations, we compute the energy of the water molecule with the Dirac-Coulomb (DC) Hamiltonian, the Hartree-Fock (HF) method and the cc-pVDZ basis set.
 
 - Let's start with creating a directory for this calculations on your Ares account (e.g., `mkdir workshop_DIRAC`) and going there (`cd workshop_DIRAC`)

@@ -12,6 +12,8 @@ objectives:
 
 ## Running environment and input files
 
+- Input files and run scripts are available [here](https://github.com/qchemlab-embedding/2023-07-14-workshop-exercises/tree/main/adf/geomopt-h2o_zora_b3lyp_dzp)
+
 - In our first calculations, we optimize the geometry of the water molecule, using the ZORA Hamiltonian, the DFT method with the B3LYP functional, and the DZP basis set.
 
 - Let's start with creating a directory for this calculations on your Ares account (e.g., `mkdir workshop_ADF`) and going there (`cd workshop_ADF`)

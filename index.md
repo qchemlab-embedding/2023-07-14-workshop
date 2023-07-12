@@ -31,7 +31,7 @@ This is the introductory workshop
 
   * prepare a working space on the Ares cluster:
     * make a directory in which you want to run tests
-    * clone [this repository](https://github.com/qchemlab-embedding/workshops) to your test directory
+    * clone [this repository](https://github.com/qchemlab-embedding/2023-07-14-workshop-exercises) to your test directory
 
 
 * if you want to have the exercises on your laptop:
