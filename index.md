@@ -10,7 +10,7 @@ This is the introductory workshop
 ## Location
 
 * room 04.53 CeNT building
-* online: TBA
+* online: [google meet](https://meet.google.com/zat-muyx-fjm)
 
 ## Tentative schedule
 
