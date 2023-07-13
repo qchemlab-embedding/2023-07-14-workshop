@@ -22,7 +22,6 @@ objectives:
 
   - a file with molecule specification and `ADF` input, we call this file `h2o_zora_b3lyp_dzp.adf`:
 
-
     ```shell
     Task GeometryOptimization
       
@@ -114,6 +113,7 @@ objectives:
     ```
 
   - "Normal Mode Frequencies" - and check whether all frequencies are positive to confirm that the optimized geometry is for the molecule in its ground state.
+
 
     ```shell
      -----------------------
