@@ -15,7 +15,6 @@ kramdown:
     css_class: 'codehilite'
 
 include: ['jekyll-common/pages']
-exclude: ['LICENSE']
 
 collections:
   episodes:
