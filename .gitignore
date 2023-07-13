@@ -1,9 +1,7 @@
 _drafts/
 _site/
-.sass-cache
+.jekyll-cache
 Gemfile.lock
 # vim swap files
 *.swp
-Gemfile
-*~
 _episodes/in_prep

@@ -14,15 +14,16 @@ objectives:
 
 Key ideas:
 
-* subsystem methods:
+* Subsystem methods:
   * partition a molecular system into subsystems
   * calculate each subsystem separately
   * "combine" the results
+
 * FDE:
   * partitioning is in terms of the electron density of a system,
-  * in calculation on each subsystem, the presence of other subsystem is accounted for through the **embedding potential**,
+  * in calculation on each subsystem, the presence of other subsystems is accounted for through the **embedding potential**,
   * the embedding potential depends on the electron densities of all subsystems,
-  * the subsystem of interest is "active", other subsystems are its "environment"
+  * the subsystem of interest is **active**, other subsystems are its **environment**,
   * by exchanging the roles of subsystems ("active"/"environment"), one can self-consistently optimize their electron densities
     * this is the **freeze-and-thaw** procedure
 

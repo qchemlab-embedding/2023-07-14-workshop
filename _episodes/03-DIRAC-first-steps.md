@@ -46,9 +46,6 @@ objectives:
     *END OF INPUT
     ``` 
 
-    - [a list of `DIRAC` keywords](https://www.diracprogram.org/doc/release-23/manual/index.html)
-
-
   - a file with calculation instructions for Ares, we call this file `run.sh`:
 
     - on Ares cluster, we can use the installed version of `DIRAC`
@@ -103,11 +100,6 @@ objectives:
     #SBATCH --error="error.err"
     ```
 
-  - [(\*) a list of available partitions](https://docs.cyfronet.pl/display/~plgpawlik/Ares#Ares-Jobsubmission)
-
-  - For more information, look at sample scripts on PlGrid [link1](https://docs.cyfronet.pl/display/~plgpawlik/Sample+scripts), [link2](https://kdm.cyfronet.pl/portal/Prometheus:Basics#MPI_jobs), and SLURM commands ([official website](https://slurm.schedmd.com/quickstart.html)).
-
-
 - We are now ready to run calculations on the Ares cluster:
 
     - Ares uses SLURM scheduling system, so to submit the calculations, execute:
@@ -151,7 +143,9 @@ objectives:
     - most of the time, I redirect data files to a directory in the dedicated Ares storage space:
 
       - first, I define the storage space, e.g. `export data_dir=$PLG_GROUPS_STORAGE/plggqcembed/dirac_tests/workshops_data/workshop_14july2023`
+
       - then, I tell `pam` script not to produce the `<input file>_<molecule file>.h5` file in my `$HOME`, but to move the data file to storage `--noh5 --get="CHECKPOINT.h5=$bin_dir/CHECKPOINT.h5"` (**note:** the `<input file>_<molecule file>.h5` which we had in `$HOME` is a copy of `CHECKPOINT.h5`)
+
       - so, in this case, my `run.sh` script is the following:
 
         ```shell
@@ -201,7 +195,6 @@ objectives:
   - Keep track of your calculations, sometimes you will need to restart with different setup/resources (e.g., I am maintaining a "calculation log").
 
 
-
 ## Reading outputs
 
 - We will primarily look at the `DIRAC` text output file (the default file name is `<input file>_<molecule file>.out`)
@@ -224,8 +217,8 @@ objectives:
 
   - in particular, note the defaults, approximations, units, and thresholds,
   - information in the `DIRAC` text output that I always check:
-    - "Atoms and basis sets" - in particular, did I ask for contracted/uncontracted basis sets in my input file? Does my model need small component functions? How many basis functions do I have? 
-    - "Cartesian coordinates" - did I use the correct units in my molecular file? did `DIRAC` correctly recognized the molecule?
+    - "Atoms and basis sets" - *did I ask for contracted/uncontracted basis sets in my input file? Does my model need small component functions? How many basis functions do I have?*
+    - "Cartesian coordinates" - *did I use the correct units in my molecular file? did `DIRAC` correctly recognized the molecule?*
     - then, to verify the model:
       - "Hamiltonian defined" - the default is the Dirac-Coulomb Hamiltonian (so we did not need to have the `**HAMILTONIAN` section in the input)
       - "Wave function module" - this is Hartree-Fock calculations (we asked for `.SCF` in the input)
@@ -247,24 +240,32 @@ objectives:
       .PRINT
       5
       ```
-      added under `.*SCF`; this will produce a massive output file with details on each SCF iteration step. See `DIRAC` keyword reference for more information.
+      added under `.*SCF`; this will produce a massive output file with details on each SCF iteration step. See `DIRAC` keyword reference for each input section for more information.
 
   - From the `DIRAC` output, we get the numerical data on single properties (e.g., the energy). Other data is stored in separate files; for instance, the wave function (i.e., the optimized molecular orbital coefficients), are stored on the `CHECKPOINT.h5` file in hdf5 format.
 
 
+
   - Where to take the molecular data from?
-    - Use online molecular databases. For example, a [NIST database for experimental data](https://cccbdb.nist.gov/exp1x.asp).
+
+    - Use online molecular databases. Examples: 
+      - a [NIST database for experimental data](https://cccbdb.nist.gov/exp1x.asp).
     - Look in supplementary information to research publications (and keep the reference). For example, here we did the calculations on the water molecule. Its geometry is taken from the publication (reference in the `*.xyz` file). 
-      - If the publication discusses the molecule you want to study, but the authors do not share the data, then don't be shy to write them an email
+      - If the publication discusses the molecule you want to study, but the authors do not share the data, then don't be shy to write them an email.
+
     - Build the molecule yourself. There are excellent open-source tools that let you build the molecule and preoptimize its geometry (using "poor" methods), and ADF resources available on Ares. For instance:
       - [Avogadro](https://avogadro.cc/)
       - [MolView](https://molview.org/)
       - we can use the `ADF` tools on Ares ([ADF-GUI tool](https://www.scm.com/doc/GUI/Building_molecules.html)),
       - **NOTE:** if you build the molecule yourself in one of these tools, make sure you follow up with the geometry optimization using better methods.
+
     - If you have the molecular data in formats other then the one accepted by `DIRAC`, you can try the [Open Babel tool](https://openbabel.org/docs/dev/Command-line_tools/babel.html) to convert the files.
+
     - My advice is to default to `.xyz` file format which has the Cartesian coordinates of all atoms in the molecular system (you don't need to know about the connectivity of atoms, nor molecular symmetry) - this format is understood by most chemical software and the Cartesian coordinates are the easiest to manipulate.
     
+
   - How to know which DIRAC keywords should be used in the input?
+
     - All calculations start with the selection of the model (see 01-introduction) - so you know which (1) basis set, (2) method, and (3) Hamiltonian you want to use
       - For the basis sets:
         - you may want to use one of the sets available in `DIRAC` - on Ares, you may want to look in these directories:
@@ -273,10 +274,13 @@ objectives:
           - e.g., search in [online database](https://www.basissetexchange.org/),
           - in this case, have a look at `DIRAC` tutorials on how to define your own basis set in the input
 
+    - browse [a list of `DIRAC` keywords](https://www.diracprogram.org/doc/release-23/manual/index.html)
+
   - How to know how many cluster resources your calculation require?
+
     - This will mostly be through trial and error, but:
       - `DIRAC` always runs single-threaded, so you'll always need `#SBATCH -N 1`
-      - you can keep the default/advised setup in the preamble (only change the partition and the number of nodes), but adapt the resources with which you want to run `DIRAC`; for that look for the description of various options to the DIRAC's `pam` script, e.g.:
+      - you can keep the default/advised setup in the preamble (only change the partition and the number of nodes), but adapt the resources with which you want to run `DIRAC`; for that look for the description of various options to the DIRAC's `pam` script - in your terminal (in Ares) run:
 
       ```shell
       module load dirac/23.0-intel-2021b
@@ -284,6 +288,11 @@ objectives:
       ```
 
       and find "Memory specification:" section
+
+  - adapt the resources to the partition you want to use: [(\*) a list of available partitions on Ares](https://docs.cyfronet.pl/display/~plgpawlik/Ares#Ares-Jobsubmission)
+
+  - for more information, look at sample scripts on PlGrid [link1](https://docs.cyfronet.pl/display/~plgpawlik/Sample+scripts) and [link2](https://kdm.cyfronet.pl/portal/Prometheus:Basics#MPI_jobs)
+
 
   - If you know you always use certain settings, it might be useful to keep them in `rc` files. For instance, I like to maintain the `~/.bashrc` and `~/.vimrc` scripts (since I use `bash` and `vim`). Also, DIRAC looks for the `~/.diracrc` file, so you can store the settings that you use in all your `DIRAC` calculations.
 

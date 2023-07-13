@@ -55,9 +55,6 @@ objectives:
     EndEngine
     ``` 
 
-    - [`ADF` keywords and tutorials](https://www.scm.com/doc/ADF/index.html)
-
-
   - a file with calculation instructions for Ares, we call this file `run.sh`:
 
 
@@ -98,21 +95,54 @@ objectives:
 
 - What else to grep for:
 
-  - "Optimized geometry:" is followed with the new optimized geometry of the H2O molecule,
+  - "Optimized geometry:" is followed with the new optimized geometry of the H2O molecule:
+
+    ```shell
+    Optimized geometry:
+     
+    --------
+    Geometry
+    --------
+    Formula: H2O
+    Atoms
+      Index Symbol   x (angstrom)   y (angstrom)   z (angstrom)
+          1      O     0.00000000    -0.00572397     0.00000000
+          2      H     0.77158369     0.58899298     0.00000000
+          3      H    -0.77158369     0.58899298     0.00000000
+     
+    Total System Charge             0.00000
+    ```
+
   - "Normal Mode Frequencies" - and check whether all frequencies are positive to confirm that the optimized geometry is for the molecule in its ground state.
+
+    ```shell
+     -----------------------
+     Normal Mode Frequencies
+     -----------------------
+    
+     Index   Frequency (cm-1)   Red. mass (u)  F const (Ha/Bohr^2)   Intensity (km/mol)
+         7          1604.8658          1.0837             0.105626              89.5389
+         8          3719.7464          1.0442             0.546783              12.8893
+         9          3830.7718          1.0821             0.600945             108.7189
+    
+     Zero-point energy (Hartree):     0.0209
+    ```
 
 
 ## Some more advice/good practices:
 
   - Please redirect large files that you want to keep to a storage space (not to clutter Ares `$HOME` space, [more information](https://docs.cyfronet.pl/display/~plgpawlik/Ares#Ares-Storage))
-    - `ADF` by default produces the "ams.results" directory with large data files, so you may want to redirect this directory to storage, if you think you will need this data later
-    - most `ADF` calculations are fast, so it may be cheaper to repeat the calculations rather than to store the data (in case you need it later)
 
-  - `ADF` has a very liberal approach to thresholds; often we will need tighter thresholds in our calculations (e.g., on optimized energies and properties),
+    - `ADF` by default produces the "ams.results" directory with large data files
+    - you can save this directory (in the storage space), but since most `ADF` calculations are fast, it may be cheaper to repeat the calculations rather than to store the data (in case you later discover that you need it),
+
+  - `ADF` has a very liberal approach to thresholds; we will often need tighter thresholds in our calculations (e.g., on optimized energies and properties),
 
   - As with `ADF` I have less control over the generated data than in `DIRAC`, I pay attention to doing each calculation in a separate directory (avoids accidental overwriting),
 
+  - search in `ADF` manual for more advice and keywords: [link](https://www.scm.com/doc/ADF/)
+
   - I find it helpful to look at actual `ADF` [examples](https://www.scm.com/doc/ADF/Examples/Examples.html);
-    - on Ares, you can copy them from `/net/software/testing/software/ADF/ams2023.101/examples/adf`
+    - on Ares, you can also browse this directory: `/net/software/testing/software/ADF/ams2023.101/examples/adf`
 
 

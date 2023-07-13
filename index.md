@@ -5,14 +5,15 @@ permalink: /
 
 # About
 
-This is the introductory workshop
+This is the introductory workshop to the project "Embedding methods in quantum chemistry - pushing the boundaries of modeling molecular properties of complex systems with heavy elements."
 
-## Location
+# Time and location
 
-* room 04.53 CeNT building
-* online: [google meet](https://meet.google.com/zat-muyx-fjm)
+* 14/07/2023, 13h30 (CET)
+* room 04.53 CeNT I building
+* and online: [google meet](https://meet.google.com/zat-muyx-fjm)
 
-## Tentative schedule
+# Tentative schedule
 
 * 13h30 - 13h45: [Theoretical introduction: basics](01-introduction)
 * 13h45 - 14h00: [Theoretical introduction: FDE](02-fde)
@@ -21,7 +22,7 @@ This is the introductory workshop
 * 15h15 - 16h15: [ADF - first steps](05-adf-first-steps)
 * 16h15 - 17h15: [FDE - first steps in ADF and pyADF](06-fde-calculations)
 
-## Prerequisites - please prepare in advance:
+# Prerequisites - please prepare in advance:
 
 * on the Ares cluster:
 
@@ -41,5 +42,13 @@ This is the introductory workshop
   * if you want to have `DIRAC` installed on your local machine:
     * you can download the recent release
     * if you are interested in the `DIRAC` code development, please let me know
+
+
+# Feedback
+
+Help improve these lessons by adding an [issue](https://github.com/qchemlab-embedding/2023-07-14-workshop/issues), joining a [discussion](https://github.com/qchemlab-embedding/2023-07-14-workshop/discussions) or sending an email to qchemlab-embedding [at] gmail.com.
+
+
+
 
 
