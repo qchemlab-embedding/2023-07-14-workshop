@@ -19,8 +19,8 @@ This is the introductory workshop to the project "Embedding methods in quantum c
 * 13h45 - 14h00: [Theoretical introduction: FDE](02-fde)
 * 14h00 - 15h00: [DIRAC - first steps](03-dirac-first-steps)
 * 15h00 - 15h15: break
-* 15h15 - 16h15: [ADF - first steps](05-adf-first-steps)
-* 16h15 - 17h15: [FDE - first steps in ADF and pyADF](06-fde-calculations)
+* 15h15 - 16h15: [ADF - first steps](04-adf-first-steps)
+* 16h15 - 17h15: [FDE - first steps in ADF and pyADF](05-fde-calculations)
 
 # Prerequisites - please prepare in advance:
 

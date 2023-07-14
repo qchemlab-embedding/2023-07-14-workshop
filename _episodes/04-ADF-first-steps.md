@@ -96,37 +96,37 @@ objectives:
 
   - "Optimized geometry:" is followed with the new optimized geometry of the H2O molecule:
 
-    ```shell
-    Optimized geometry:
-     
-    --------
-    Geometry
-    --------
-    Formula: H2O
-    Atoms
-      Index Symbol   x (angstrom)   y (angstrom)   z (angstrom)
-          1      O     0.00000000    -0.00572397     0.00000000
-          2      H     0.77158369     0.58899298     0.00000000
-          3      H    -0.77158369     0.58899298     0.00000000
-     
-    Total System Charge             0.00000
-    ```
+      ```shell
+      Optimized geometry:
+       
+      --------
+      Geometry
+      --------
+      Formula: H2O
+      Atoms
+        Index Symbol   x (angstrom)   y (angstrom)   z (angstrom)
+            1      O     0.00000000    -0.00572397     0.00000000
+            2      H     0.77158369     0.58899298     0.00000000
+            3      H    -0.77158369     0.58899298     0.00000000
+       
+      Total System Charge             0.00000
+      ```
 
   - "Normal Mode Frequencies" - and check whether all frequencies are positive to confirm that the optimized geometry is for the molecule in its ground state.
 
 
-    ```shell
-     -----------------------
-     Normal Mode Frequencies
-     -----------------------
-    
-     Index   Frequency (cm-1)   Red. mass (u)  F const (Ha/Bohr^2)   Intensity (km/mol)
-         7          1604.8658          1.0837             0.105626              89.5389
-         8          3719.7464          1.0442             0.546783              12.8893
-         9          3830.7718          1.0821             0.600945             108.7189
-    
-     Zero-point energy (Hartree):     0.0209
-    ```
+      ```shell
+       -----------------------
+       Normal Mode Frequencies
+       -----------------------
+      
+       Index   Frequency (cm-1)   Red. mass (u)  F const (Ha/Bohr^2)   Intensity (km/mol)
+           7          1604.8658          1.0837             0.105626              89.5389
+           8          3719.7464          1.0442             0.546783              12.8893
+           9          3830.7718          1.0821             0.600945             108.7189
+      
+       Zero-point energy (Hartree):     0.0209
+      ```
 
 
 ## Some more advice/good practices:
