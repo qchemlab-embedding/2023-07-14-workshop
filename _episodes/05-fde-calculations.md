@@ -5,7 +5,7 @@ teaching: 0
 exercises: 60
 objectives:
   - Run your first FDE calculations
-  - ... we will come back to this lesson in the next workshop
+  - Use PyADF script to run calculations in ADF
 ---
 
 
