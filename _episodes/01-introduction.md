@@ -54,7 +54,7 @@ To achieve that, we first introduce a wave function, $\psi(\vec{r}, t)$, for a p
 
 - this wave function can be obtained by solving the Schrodinger or Dirac equations, which (both) have the following form:
 
-  $$\hat{H}\psi(\vec{r}, t) = i\frac{d\psi(\vec{r}, t)}{dt}$$, or, in time-independent case, $$\hat{H}\psi(\vec{r}, t) = E\psi(\vec{r}, t)$$,
+  $$\hat{H}\psi(\vec{r}, t) = i\frac{d\psi(\vec{r}, t)}{dt}$$, or, in time-independent case, $$\hat{H}\psi(\vec{r}) = E\psi(\vec{r})$$,
 
 - the physics of a system is contained in the **Hamiltonian**, $\hat{H}$; it is a sum of kinetic ($\hat{T}$) and potential ($\hat{V}$) energy operators, $\hat{H} = \hat{T} + \hat{V}$,
 
